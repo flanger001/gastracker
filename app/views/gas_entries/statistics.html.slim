@@ -1,0 +1,19 @@
+- content_for :title, 'Instructions'
+= render 'layouts/nav_tabs'
+.statistics
+  - if collection.empty?
+    p No data yet
+  - else
+    table
+      tr
+        td Total Recorded Distance
+        td #{total_recorded_distance.round(2)} miles
+      tr
+        td Gallons Consumed
+        td= total_gallons.round(2)
+      tr
+        td Cost
+        td= total_cost
+      tr
+        td Average Miles Per Gallon
+        td= average_mpg.round(2)

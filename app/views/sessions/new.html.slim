@@ -1,0 +1,10 @@
+- content_for :title, 'Log In'
+
+= form_for :session, url: sessions_path, method: :post  do |form|
+  .form-group
+    = form.label :email, nil, class: 'control-label'
+    = form.text_field :email, class: 'form-control input-lg'
+  .form-group
+    = form.label :password, nil, class: 'control-label'
+    = form.password_field :password, class: 'form-control input-lg'
+  = submit_tag 'Log In', class: 'btn btn-lg btn-success'

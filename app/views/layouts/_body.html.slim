@@ -1,0 +1,8 @@
+- body_title = capture do
+  = yield :title if content_for? :title
+.container-fluid
+  .row
+    .col-sm-12
+      h1= body_title
+  .content
+    = yield

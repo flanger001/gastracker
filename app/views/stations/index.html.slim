@@ -1,0 +1,31 @@
+- content_for :title, 'Station Manager'
+
+= render 'layouts/nav_tabs'
+
+table.table
+  thead
+    tr
+      th Name
+      th Address
+      th City
+      th State
+      th Zip
+      th Phone
+      th
+
+  tbody
+    - collection.each do |row|
+      tr
+        td= row.name
+        td= row.address
+        td= row.city
+        td= row.state
+        td= row.zip
+        td= row.phone
+        td
+          .btn-toolbar.pull-right
+            = link_to 'Show', row, class: 'btn btn-xs btn-info'
+            = link_to 'Edit', edit_station_path(row), class: 'btn btn-xs btn-warning'
+            = link_to 'Destroy', row, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-xs btn-danger'
+
+= link_to 'New Station', new_station_path, class: 'btn btn-lg btn-success'

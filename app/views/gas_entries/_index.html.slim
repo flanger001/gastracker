@@ -1,0 +1,28 @@
+.all-entries
+  .table-responsive
+    table.table.table-hover
+      th Date
+      th Odometer
+      th Miles
+      th Gallons
+      th Cost
+      th MPG
+      th Notes
+      th Actions
+      - collection.each do |row|
+        tr
+          td= row.date.to_s(:long)
+          td= row.odometer
+          td= row.distance
+          td= row.gallons
+          td= number_to_currency(row.cost)
+          td= row.mpg.round(2)
+          td= row.notes
+          td
+            .btn-toolbar
+            = link_to edit_gas_entry_path(row), class: 'btn btn-warning btn-xs' do
+              | Edit
+              span.glyphicon.glyphicon-edit<
+            = link_to gas_entry_path(row), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+              | Delete
+              span.glyphicon.glyphicon-remove<

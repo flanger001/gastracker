@@ -1,0 +1,12 @@
+- content_for :title, 'Dashboard'
+
+= render 'layouts/nav_tabs'
+
+- unless collection.empty?
+  .alert.alert-success.alert-dismissible
+    button.close data-dismiss='alert' &times;
+    h4 Most recent fill-up
+    p Your most recent fill-up was on #{collection.first.date.to_s(:long)}. Odometer was #{collection.first.odometer}.
+    p You drove #{collection.first.distance} miles on #{collection.first.gallons} gallons at a cost of #{number_to_currency(collection.first.cost)}.
+    p Your mileage was <b>#{(collection.first.distance / collection.first.gallons).round(2)}</b> mpg.
+

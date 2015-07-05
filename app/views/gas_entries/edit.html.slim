@@ -1,0 +1,8 @@
+- content_for :title, 'Edit Gas Entry'
+
+= form_for resource do |form|
+  = render 'errors'
+  = render 'fields', form: form
+
+  br
+  = form.submit 'Edit Gas Entry', { class: 'btn btn-success form-control' }

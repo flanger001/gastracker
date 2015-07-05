@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1'
+    title= full_title(yield(:title))
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = javascript_include_tag :modernizr
+    = csrf_meta_tags
+    = render 'layouts/shim'
+body
+  = render 'layouts/navbar'
+  = render 'layouts/body'
+  = render 'layouts/footer'

@@ -1,0 +1,37 @@
+@import 'bootstrap-sprockets';
+@import 'variables';
+@import 'bootstrap';
+@import 'bootstrap_utility_styles';
+
+.error {
+  color: #801f1f;
+}
+
+.success {
+  color: #1f801f;
+}
+
+.toolbar {
+  margin-bottom: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+h1.page-title + .btn-toolbar.pills {
+  float: right;
+  margin-top: -43px;
+}
+
+.statistics {
+  table {
+    td {
+      padding: 2px 5px;
+      &:first-child {
+        font-weight: bold;
+        padding-right: 15px;
+      }
+    }
+  }
+}
