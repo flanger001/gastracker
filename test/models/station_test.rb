@@ -11,6 +11,7 @@
 #  state      :string
 #  zip        :string
 #  phone      :string
+#  user_id    :integer
 #
 
 require 'test_helper'

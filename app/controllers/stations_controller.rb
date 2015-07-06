@@ -8,14 +8,14 @@ class StationsController < ApplicationController
   end
 
   def new
-    @station = Station.new
+    @station = current_user.stations.build
   end
 
   def edit
   end
 
   def create
-    @station = Station.new(resource_params)
+    @station = current_user.stations.build(resource_params)
     if resource.save
       redirect_to resource, notice: 'Station was successfully created.'
     else
@@ -39,11 +39,11 @@ class StationsController < ApplicationController
   private
 
   def resource
-    @station ||= Station.find(params[:id])
+    @station ||= current_user.stations.find(params[:id])
   end
 
   def collection
-    @stations = Station.all
+    @stations = current_user.stations.all
   end
 
   helper_method :resource, :collection

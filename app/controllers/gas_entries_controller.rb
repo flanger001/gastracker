@@ -13,12 +13,15 @@ class GasEntriesController < ApplicationController
   end
 
   def new
-    @resource = current_user.gas_entries.new
+    @resource = current_user.gas_entries.build
     resource.date = Date.today
   end
 
   def create
     @resource = current_user.gas_entries.build(resource_params)
+    if resource.station
+      resource.station.user = current_user
+    end
     if resource.save
       flash[:success] = 'Fill-up added successfully!'
       redirect_to gas_entries_path

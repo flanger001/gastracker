@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   has_many :gas_entries, dependent: :destroy
+  has_many :stations, dependent: :destroy
 
   def guest?
     false

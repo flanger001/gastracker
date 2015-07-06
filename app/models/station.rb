@@ -11,8 +11,11 @@
 #  state      :string
 #  zip        :string
 #  phone      :string
+#  user_id    :integer
 #
 
 class Station < ActiveRecord::Base
   has_many :gas_entries
+  belongs_to :user
+
 end
