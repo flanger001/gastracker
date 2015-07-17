@@ -1,0 +1,11 @@
+- content_for :title, "#{resource.year} #{resource.brand} #{resource.name}"
+= render 'layouts/nav_tabs'
+
+p#notice = notice
+p= resource.year
+p= resource.brand
+p= resource.name
+
+.btn-toolbar
+  = link_to 'Edit', edit_vehicle_path(resource), class: 'btn btn-md btn-default'
+  = link_to 'Back', vehicles_path, class: 'btn btn-md btn-default'

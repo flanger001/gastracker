@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :gas_entries, dependent: :destroy
   has_many :stations, dependent: :destroy
+  has_many :vehicles, dependent: :destroy
 
   def guest?
     false

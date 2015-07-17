@@ -27,6 +27,7 @@ module ApplicationHelper
     logged_in = [
       ['Entries', gas_entries_path],
       ['Stations', stations_path],
+      ['Vehicles', vehicles_path],
       [current_user.name, user_path(current_user)],
       ['Log Out', logout_path, :post]
     ]
@@ -44,6 +45,7 @@ module ApplicationHelper
       ['Add Fill-Up', new_gas_entry_path],
       ['All Gas Entries', gas_entries_path],
       ['All Stations', stations_path],
+      ['All Vehicles', vehicles_path],
       ['Instructions', instructions_path],
       ["#{Time.now.year} Statistics", statistics_path]
     ]

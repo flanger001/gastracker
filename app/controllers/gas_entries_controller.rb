@@ -53,18 +53,27 @@ class GasEntriesController < ApplicationController
   protected
 
   def resource_params
-    params.require(:gas_entry).permit(:date, :odometer, :gallons, :distance, :notes, :cost, :station_id,
-      { :station_attributes => [:id, :name, :address, :city, :state, :zip, :phone] })
+    params.require(:gas_entry).permit(:date, :odometer, :gallons, :distance, :notes, :cost, :station_id, :vehicle_id,
+                                      { :station_attributes => [:id, :name, :address, :city, :state, :zip, :phone] })
   end
 
   def collection
-    @collection = current_user.gas_entries.most_recent.this_year
+    @collection ||= current_user.gas_entries.most_recent.this_year.map { |entry| GasEntryPresenter.new(entry, current_user) }
   end
 
   def resource
     @resource ||= current_user.gas_entries.find(params[:id])
   end
 
-  helper_method :resource, :collection
+  # TODO: These know too much
+  def stations
+    current_user.stations.all
+  end
+
+  def vehicles
+    current_user.vehicles.all
+  end
+
+  helper_method :resource, :collection, :stations, :vehicles
 
 end

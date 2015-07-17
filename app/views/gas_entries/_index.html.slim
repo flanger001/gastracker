@@ -2,21 +2,25 @@
   .table-responsive
     table.table.table-hover
       th Date
+      th Vehicle
       th Odometer
       th Miles
       th Gallons
       th Cost
       th MPG
+      th Station
       th Notes
       th Actions
       - collection.each do |row|
         tr
-          td= row.date.to_s(:long)
+          td= row.date
+          td= row.vehicle
           td= row.odometer
           td= row.distance
           td= row.gallons
           td= number_to_currency(row.cost)
-          td= row.mpg.round(2)
+          td= row.mpg
+          td= row.station
           td= row.notes
           td
             .btn-toolbar

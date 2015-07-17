@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :sessions
   resources :gas_entries
   resources :stations
+  resources :vehicles
 
 end

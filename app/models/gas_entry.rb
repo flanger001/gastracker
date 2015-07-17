@@ -13,12 +13,14 @@
 #  cost       :float            default(0.0)
 #  user_id    :integer
 #  station_id :integer
+#  vehicle_id :integer
 #
 
 class GasEntry < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :station
+  belongs_to :vehicle
   accepts_nested_attributes_for :station
 
   validates :gallons, numericality: { greater_than: 0 }
@@ -29,6 +31,10 @@ class GasEntry < ActiveRecord::Base
 
   def mpg
     distance / gallons
+  end
+
+  def self.total_cost
+    this_year.map(&:cost).sum
   end
 
 end

@@ -2,6 +2,9 @@
   = form.label :date, class: 'control-label'
   = form.date_field :date, class: 'form-control input-lg'
 .form-group
+  = form.label :vehicle_id, class: 'control-label'
+  = form.collection_select :vehicle_id, vehicles, :id, Proc.new { |v| "#{v.year} #{v.brand} #{v.name}" }, { prompt: 'Please select a vehicle' }, class: 'form-control input-lg'
+.form-group
   = form.label :odometer, class: 'control-label'
   = form.number_field :odometer, class: 'form-control input-lg'
 .form-group
@@ -17,7 +20,7 @@
   div class="#{form.object.station ? 'col-sm-12' : 'col-sm-10'}"
     .form-group
       = form.label :station_id, class: 'control-label'
-      = form.collection_select :station_id, Station.all, :id, Proc.new { |s| "#{s.name} - #{s.city}" }, { prompt: 'Please select a station' }, class: 'form-control input-lg'
+      = form.collection_select :station_id, stations, :id, Proc.new { |s| "#{s.name} - #{s.city}" }, { prompt: 'Please select a station' }, class: 'form-control input-lg'
   - unless form.object.station
     .col-sm-2
       .form-group
