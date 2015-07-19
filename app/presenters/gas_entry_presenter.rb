@@ -1,4 +1,4 @@
-class GasEntryPresenter
+class GasEntryPresenter < Presenter
   include ActiveSupport::NumberHelper
 
   attr_reader :resource, :user
@@ -13,8 +13,9 @@ class GasEntryPresenter
            :gallons,
            :cost,
            :notes,
+           :date,
            to: :resource
-  
+
   def initialize(resource, user)
     @resource = resource
     @user = user
@@ -24,7 +25,7 @@ class GasEntryPresenter
     resource.vehicle ? "#{resource.vehicle.year} #{resource.vehicle.brand} #{resource.vehicle.name}" : 'None Entered'
   end
 
-  def date
+  def pretty_date
     resource.date.to_s(:long)
   end
 
