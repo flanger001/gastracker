@@ -1,14 +1,6 @@
 class GasEntryPresenter < Presenter
-  include ActiveSupport::NumberHelper
 
-  attr_reader :resource, :user
-
-  delegate :to_key,
-           :to_param,
-           :to_partial_path,
-           :new_record?,
-           :persisted?,
-           :odometer,
+  delegate :odometer,
            :distance,
            :gallons,
            :cost,
@@ -16,9 +8,8 @@ class GasEntryPresenter < Presenter
            :date,
            to: :resource
 
-  def initialize(resource, user)
-    @resource = resource
-    @user = user
+  def post_initialize(args)
+    true
   end
 
   def vehicle

@@ -7,13 +7,13 @@
     table
       tr
         td Total Recorded Distance
-        td #{total_recorded_distance} miles
+        td #{collection.total_recorded_distance} miles
       tr
         td Gallons Consumed
-        td= total_gallons.round(2)
+        td= collection.total_gallons
       tr
         td Cost
-        td= total_cost
+        td= collection.total_cost
       tr
         td Average Miles Per Gallon
-        td= average_mpg.round(2)
+        td= collection.average_mpg

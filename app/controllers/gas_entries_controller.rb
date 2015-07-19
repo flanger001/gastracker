@@ -1,6 +1,6 @@
 class GasEntriesController < ApplicationController
-  include ActionView::Helpers::NumberHelper
-  include GasEntryMethods
+  # include ActionView::Helpers::NumberHelper
+  # include GasEntryMethods
   before_action :require_user
 
   def index
@@ -58,12 +58,11 @@ class GasEntriesController < ApplicationController
   end
 
   def collection
-    @collection ||= current_user.gas_entries.only_this_year
-                      .map { |entry| GasEntryPresenter.new(entry, current_user) }
+    @collection ||= GasEntryCollectionPresenter.new({ collection: current_user.gas_entries.only_this_year, user: current_user, view: view_context })
   end
 
   def resource
-    @resource ||= current_user.gas_entries.find(params[:id])
+    @resource ||= GasEntryPresenter.new({ resource: GasEntry.find(params[:id]), user: current_user, view: view_context})
   end
 
   # TODO: These know too much
