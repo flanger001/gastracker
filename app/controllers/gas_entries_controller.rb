@@ -58,7 +58,8 @@ class GasEntriesController < ApplicationController
   end
 
   def collection
-    @collection ||= current_user.gas_entries.most_recent.this_year.map { |entry| GasEntryPresenter.new(entry, current_user) }
+    @collection ||= current_user.gas_entries.only_this_year
+                      .map { |entry| GasEntryPresenter.new(entry, current_user) }
   end
 
   def resource
