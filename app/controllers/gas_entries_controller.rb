@@ -1,6 +1,4 @@
 class GasEntriesController < ApplicationController
-  # include ActionView::Helpers::NumberHelper
-  # include GasEntryMethods
   before_action :require_user
 
   def index
@@ -67,11 +65,11 @@ class GasEntriesController < ApplicationController
 
   # TODO: These know too much
   def stations
-    current_user.stations.all
+    @stations = current_user.stations.all
   end
 
   def vehicles
-    current_user.vehicles.all
+    @vehicles = current_user.vehicles.all
   end
 
   helper_method :resource, :collection, :stations, :vehicles

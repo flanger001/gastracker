@@ -1,13 +1,5 @@
 class GasEntryPresenter < Presenter
 
-  delegate :odometer,
-           :distance,
-           :gallons,
-           :cost,
-           :notes,
-           :date,
-           to: :resource
-
   def post_initialize(args)
     true
   end

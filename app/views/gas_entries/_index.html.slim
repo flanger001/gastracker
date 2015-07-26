@@ -24,9 +24,5 @@
           td= row.notes
           td
             .btn-toolbar
-            = link_to edit_gas_entry_path(row), class: 'btn btn-warning btn-xs' do
-              | Edit
-              span.glyphicon.glyphicon-edit<
-            = link_to gas_entry_path(row), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
-              | Delete
-              span.glyphicon.glyphicon-remove<
+              = link_to 'Edit', edit_gas_entry_path(row), class: 'btn btn-warning btn-xs'
+              = link_to 'Delete', gas_entry_path(row), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
