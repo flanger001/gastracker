@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.2.3'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'sass-rails'
@@ -25,4 +25,10 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'web-console'
+end
+
+group :test do
+  gem 'minitest-reporters'
+  gem 'capybara'
+  gem 'capybara-webkit'
 end
