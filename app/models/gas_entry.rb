@@ -27,6 +27,8 @@ class GasEntry < ActiveRecord::Base
   validates :gallons, numericality: { greater_than: 0 }
   validates :odometer, numericality: true
 
+  before_save :calculate_ppg
+
   scope :most_recent, -> { order('date desc') }
   scope :this_year, -> { where('date >= ?', Time.now.at_beginning_of_year) }
   scope :only_this_year, -> { most_recent.this_year }
@@ -39,4 +41,7 @@ class GasEntry < ActiveRecord::Base
     this_year.map(&:cost).sum
   end
 
+  def calculate_ppg
+    self.price_per_gallon = cost / gallons
+  end
 end
