@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715132109) do
+ActiveRecord::Schema.define(version: 20151125184445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "gas_entries", force: :cascade do |t|
-    t.integer  "odometer",               default: 0
-    t.float    "gallons",                default: 0.0
-    t.float    "distance",               default: 0.0
+    t.integer  "odometer",                     default: 0
+    t.float    "gallons",                      default: 0.0
+    t.float    "distance",                     default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.string   "notes",      limit: 255
-    t.float    "cost",                   default: 0.0
+    t.string   "notes",            limit: 255
+    t.float    "cost",                         default: 0.0
     t.integer  "user_id"
     t.integer  "station_id"
     t.integer  "vehicle_id"
+    t.float    "price_per_gallon",             default: 0.0
   end
 
   add_index "gas_entries", ["station_id"], name: "index_gas_entries_on_station_id", using: :btree

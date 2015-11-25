@@ -51,8 +51,9 @@ class GasEntriesController < ApplicationController
   protected
 
   def resource_params
-    params.require(:gas_entry).permit(:date, :odometer, :gallons, :distance, :notes, :cost, :station_id, :vehicle_id,
-                                      { :station_attributes => [:id, :name, :address, :city, :state, :zip, :phone] })
+    params.require(:gas_entry)
+      .permit(:date, :odometer, :gallons, :distance, :notes, :cost, :station_id, :vehicle_id, :price_per_gallon,
+              { :station_attributes => [:id, :name, :address, :city, :state, :zip, :phone] })
   end
 
   def collection
@@ -60,7 +61,7 @@ class GasEntriesController < ApplicationController
   end
 
   def resource
-    @resource ||= GasEntryPresenter.new({ resource: GasEntry.find(params[:id]), user: current_user, view: view_context})
+    @resource ||= GasEntryPresenter.new({ resource: GasEntry.find(params[:id]), user: current_user, view: view_context })
   end
 
   # TODO: These know too much
