@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125184445) do
+ActiveRecord::Schema.define(version: 20151126150829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20151125184445) do
     t.datetime "updated_at"
     t.date     "date"
     t.string   "notes",            limit: 255
-    t.float    "cost",                         default: 0.0
+    t.float    "cost"
     t.integer  "user_id"
     t.integer  "station_id"
     t.integer  "vehicle_id"
-    t.float    "price_per_gallon",             default: 0.0
+    t.float    "price_per_gallon"
   end
 
   add_index "gas_entries", ["station_id"], name: "index_gas_entries_on_station_id", using: :btree
