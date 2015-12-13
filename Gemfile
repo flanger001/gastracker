@@ -15,11 +15,12 @@ gem 'turbolinks'
 gem 'bcrypt'
 gem 'thin'
 gem 'annotate'
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn'
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
 end
 
 group :development do

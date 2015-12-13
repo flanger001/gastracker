@@ -69,6 +69,10 @@ GEM
     coffee-script-source (1.9.1.1)
     daemons (1.2.2)
     debug_inspector (0.0.2)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
@@ -98,7 +102,6 @@ GEM
       ruby-progressbar
     modernizr-rails (2.7.1)
     multi_json (1.11.1)
-    newrelic_rpm (3.12.0.288)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.2)
@@ -126,11 +129,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.4)
-    rails_stdout_logging (0.0.3)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
@@ -198,15 +196,14 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   minitest-reporters
   modernizr-rails
-  newrelic_rpm
   pg
   quiet_assets
   rails (= 4.2.4)
-  rails_12factor
   sass-rails
   slim-rails
   thin
