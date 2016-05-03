@@ -18,7 +18,7 @@ gem 'annotate'
 gem 'newrelic_rpm'
 gem 'dotenv-rails'
 gem 'carrierwave'
-gem 'fog-aws'
+gem 'fog'
 
 group :production do
   gem 'unicorn'
