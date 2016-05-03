@@ -17,8 +17,7 @@ gem 'thin'
 gem 'annotate'
 gem 'newrelic_rpm'
 gem 'dotenv-rails'
-gem 'carrierwave'
-gem 'fog'
+gem 'carrierwave-aws'
 
 group :production do
   gem 'unicorn'
