@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.0'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.6'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'sass-rails'
@@ -15,16 +15,19 @@ gem 'turbolinks'
 gem 'bcrypt'
 gem 'thin'
 gem 'annotate'
-# gem 'newrelic_rpm'
+gem 'newrelic_rpm'
 gem 'dotenv-rails'
+gem 'carrierwave'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn'
-  # gem 'rails_12factor'
+  gem 'rails_12factor'
 end
 
 group :development do
   gem 'quiet_assets'
+  gem 'byebug'
   gem 'web-console'
 end
 

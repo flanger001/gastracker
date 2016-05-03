@@ -18,11 +18,12 @@
 #
 
 class GasEntry < ActiveRecord::Base
-
   belongs_to :user
   belongs_to :station
   belongs_to :vehicle
   accepts_nested_attributes_for :station
+
+  mount_uploader :photo, ImageUploader
 
   validates :gallons, numericality: { greater_than: 0 }
   validates :odometer, numericality: true

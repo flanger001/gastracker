@@ -35,3 +35,15 @@
 .form-group
   = form.label :notes, class: 'control-label'
   = form.text_area :notes, class: 'form-control input-lg'
+- if form.object.photo.present?
+  .row
+    .col-sm-6
+      = image_tag form.object.photo.url, class: 'img-responsive'
+    .col-sm-6
+      .form-group
+        = form.label :remove_photo, 'Remove photo?', class: 'control-label'
+        = form.check_box :remove_photo, class: 'form-control input-lg'
+.form-group
+  = form.label :photo, class: 'control-label'
+  = form.file_field :photo, class: 'form-control input-lg'
+
