@@ -1,5 +1,4 @@
 class GuestUser
-
   def name
     'Guest'
   end
@@ -11,5 +10,4 @@ class GuestUser
   def persisted?
     false
   end
-
 end

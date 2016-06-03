@@ -1,19 +1,19 @@
 - content_for :title, 'Instructions'
-= render 'layouts/nav_tabs'
+
 .statistics
-  - if collection.empty?
+  - if resource.empty?
     p No data yet
   - else
     table
       tr
         td Total Recorded Distance
-        td #{collection.total_recorded_distance} miles
+        td #{resource.total_recorded_distance} miles
       tr
         td Gallons Consumed
-        td= collection.total_gallons
+        td= resource.total_gallons
       tr
         td Cost
-        td= collection.total_cost
+        td= resource.total_cost
       tr
         td Average Miles Per Gallon
-        td= collection.average_mpg
+        td= resource.average_mpg

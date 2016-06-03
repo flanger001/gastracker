@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-
-  root 'static_pages#index'
-  get 'index', to: 'static_pages#index'
-  get 'about', to: 'static_pages#about'
-
-  get 'dashboard', to: 'gas_entries#dashboard'
-  get 'instructions', to: 'gas_entries#instructions'
-  get 'statistics', to: 'gas_entries#statistics'
+  root 'pages#index'
+  get 'index', to: 'pages#index'
+  get 'about', to: 'pages#about'
 
   get 'login', to: 'sessions#new'
   match 'logout', to: 'sessions#destroy', via: [:get, :post]
@@ -15,7 +10,17 @@ Rails.application.routes.draw do
   resources :passwords
   resources :sessions
   resources :gas_entries
+  controller :gas_entries do
+    get 'instructions' => :instructions
+    get 'statistics' => :statistics
+  end
+  resources :dashboards, path: 'dashboard', only: :index
   resources :stations
-  resources :vehicles
-
+  resources :vehicles, module: 'vehicle' do
+    resources :gas_entries
+    member do
+      resources :gas_entries
+      resources :statistics, only: :index
+    end
+  end
 end

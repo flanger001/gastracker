@@ -1,0 +1,10 @@
+- content_for :content do
+  .toolbar
+    nav
+      ul.nav.nav-tabs
+        - gas_entry_links.each do |link|
+          li class="#{active?(link.url)}"
+            = link_to link.name, link.url
+  = yield
+
+= render file: 'layouts/application'

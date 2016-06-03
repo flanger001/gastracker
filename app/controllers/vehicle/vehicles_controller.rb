@@ -1,26 +1,22 @@
-class VehiclesController < ApplicationController
-  before_action :require_user
-
-  def index
-  end
+class Vehicle::VehiclesController < ApplicationController
+  layout 'vehicle'
 
   def show
   end
 
   def new
-    @resource = current_user.vehicles.build
+    @resource = Vehicle.new(user: current_user)
   end
 
   def edit
   end
 
   def create
-    @resource = current_user.vehicles.build(vehicle_params)
-
+    @resource = Vehicle.new(vehicle_params.merge(user: current_user))
     if resource.save
       redirect_to resource, notice: 'Vehicle was successfully created.'
     else
-      render :new
+      render action: :new
     end
   end
 
@@ -28,7 +24,7 @@ class VehiclesController < ApplicationController
     if resource.update(vehicle_params)
       redirect_to resource, notice: 'Vehicle was successfully updated.'
     else
-      render :edit
+      render action: :edit
     end
   end
 
@@ -37,20 +33,15 @@ class VehiclesController < ApplicationController
     redirect_to vehicles_url, notice: 'Vehicle was successfully destroyed.'
   end
 
-  private
-
-  def resource
-    @resource ||= current_user.vehicles.find(params[:id])
+  def collection
+    @collection ||= Vehicle.includes(:user).where(user: current_user)
   end
 
-  def collection
-    @collection ||= current_user.vehicles.all
+  def resource
+    @resource ||= Vehicle.includes(:user).where(user: current_user).find(params[:id])
   end
 
   def vehicle_params
     params.require(:vehicle).permit(:brand, :name, :year)
   end
-
-  helper_method :collection, :resource
-
 end

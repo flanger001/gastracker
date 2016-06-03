@@ -21,10 +21,9 @@ class SessionsController < ApplicationController
     redirect_to home_path, success: 'Logged out!'
   end
 
-  protected
+  private
 
   def resource_params
     params.require(:session).permit(:email, :password)
   end
-
 end

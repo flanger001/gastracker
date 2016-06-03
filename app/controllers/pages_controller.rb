@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicationController
+class PagesController < ApplicationController
 
   def index
     redirect_to home_path if user_logged_in?

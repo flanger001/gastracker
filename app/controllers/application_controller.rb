@@ -18,9 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def home_path
-    user_logged_in? ? dashboard_path : root_path
+    user_logged_in? ? dashboards_path : root_path
   end
-  alias_method :home_url, :home_path
 
   def require_user
     redirect_to home_path if current_user.guest?
@@ -30,5 +29,14 @@ class ApplicationController < ActionController::Base
     redirect_to home_path unless current_user.guest?
   end
 
-  helper_method :current_user, :user_logged_in?, :home_path, :home_url
+  def resource
+    raise 'define a `resource`'
+  end
+
+  def collection
+    raise 'define a `collection`'
+  end
+
+
+  helper_method :current_user, :user_logged_in?, :home_path, :collection, :resource
 end

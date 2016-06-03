@@ -12,12 +12,11 @@ class PasswordsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def password_form
     @password_form ||= PasswordForm.new(current_user)
   end
 
   helper_method :password_form
-
 end

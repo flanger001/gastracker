@@ -1,0 +1,22 @@
+table.present
+  tr
+    td Vehicle
+    td= link_to_if resource.vehicle, resource.vehicle.try(:full_name), resource.vehicle
+  tr
+    td Odometer
+    td= resource.odometer
+  tr
+    td Distance
+    td #{resource.distance} miles
+  tr
+    td Gallons
+    td= resource.gallons
+  tr
+    td Cost
+    td= number_to_currency(resource.cost)
+  tr
+    td MPG
+    td= resource.mpg
+  tr
+    td Station
+    td= resource.station.try(:name)

@@ -1,0 +1,21 @@
+- content_for :title, 'Vehicle Manager'
+
+table.table.table-hover
+  thead
+    tr
+      th Brand
+      th Name
+      th Year
+      th
+  tbody
+    - collection.each do |row|
+      tr
+        td= row.brand
+        td= row.name
+        td= row.year
+        td
+          .btn-toolbar.pull-right
+            = link_to 'Fill Up', new_vehicle_gas_entry_path(row), class: 'btn btn-sm btn-success'
+            = link_to 'Show', row, class: 'btn btn-sm btn-info'
+            = link_to 'Edit', edit_vehicle_path(row), class: 'btn btn-sm btn-warning'
+            = link_to 'Destroy', row, data: { :confirm => 'Are you sure?' }, :method => :delete, class: 'btn btn-sm btn-danger'

@@ -1,6 +1,5 @@
-class GasEntriesController < ApplicationController
+class Vehicle::GasEntriesController < ApplicationController
   layout 'gas_entry'
-  before_action :require_user
 
   def index
   end
@@ -13,11 +12,11 @@ class GasEntriesController < ApplicationController
   end
 
   def new
-    @resource = GasEntry.new(user: current_user, date: Date.today)
+    @resource = GasEntry.new(user: current_user, date: Date.today, vehicle: vehicle)
   end
 
   def create
-    @resource = GasEntry.new(resource_params.merge(user: current_user))
+    @resource = GasEntry.new(resource_params.merge(user: current_user, vehicle: vehicle))
     if resource.station
       resource.station.user = current_user
     end
@@ -75,13 +74,13 @@ class GasEntriesController < ApplicationController
     @resource ||= GasEntry.find(params[:id])
   end
 
+  def vehicle
+    @vehicle ||= Vehicle.find(params[:vehicle_id])
+  end
+
   def stations
     @stations = Station.includes(:user).where(user: current_user)
   end
 
-  def vehicles
-    @vehicles = Vehicle.includes(:user).where(user: current_user)
-  end
-
-  helper_method :resource, :collection, :stations, :vehicles
+  helper_method :resource, :collection, :vehicle, :stations
 end

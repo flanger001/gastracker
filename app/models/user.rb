@@ -23,5 +23,4 @@ class User < ActiveRecord::Base
   def guest?
     false
   end
-
 end

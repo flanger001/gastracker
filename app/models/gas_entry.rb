@@ -25,10 +25,11 @@ class GasEntry < ActiveRecord::Base
 
   mount_uploader :photo, ImageUploader
 
-  validates :gallons, numericality: { greater_than: 0 }
-  validates :odometer, numericality: true
+  validates :gallons, numericality: { greater_than: 0 }, unless: :photo?
+  validates :odometer, numericality: true, unless: :photo?
+  validates :vehicle, presence: true
 
-  before_save :calculate_cost_or_ppg
+  before_save :calculate_cost_or_ppg, unless: :photo?
 
   scope :most_recent, -> { order('date desc') }
   scope :this_year, -> { where('date >= ?', Time.now.at_beginning_of_year) }
@@ -49,4 +50,7 @@ class GasEntry < ActiveRecord::Base
       self.cost = price_per_gallon * gallons
     end
   end
+
+  class Empty < GasEntry; end
 end
+

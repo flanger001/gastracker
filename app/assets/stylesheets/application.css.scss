@@ -19,19 +19,21 @@
   margin-top: 20px;
 }
 
-h1.page-title + .btn-toolbar.pills {
-  float: right;
-  margin-top: -43px;
+h1.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  + .btn-toolbar.pills {
+    float: right;
+    margin-top: -43px;
+  }
 }
 
-.statistics {
-  table {
-    td {
-      padding: 2px 5px;
-      &:first-child {
-        font-weight: bold;
-        padding-right: 15px;
-      }
+table.present {
+  td {
+    padding: 2px 5px;
+    &:first-child {
+      font-weight: bold;
+      padding-right: 15px;
     }
   }
 }
