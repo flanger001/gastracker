@@ -4,10 +4,6 @@ class Vehicle::GasEntriesController < ApplicationController
   def index
   end
 
-  def dashboard
-    @resource = collection.first || GasEntry::Empty.new
-  end
-
   def show
   end
 
@@ -67,7 +63,9 @@ class Vehicle::GasEntriesController < ApplicationController
   end
 
   def collection
-    @collection ||= GasEntry.only_this_year
+    @collection ||= GasEntry.includes(:user, :vehicle)
+                      .where(user: current_user, vehicle: vehicle)
+                      .only_this_year
   end
 
   def resource

@@ -18,6 +18,7 @@ gem 'annotate'
 gem 'newrelic_rpm'
 gem 'dotenv-rails'
 gem 'carrierwave-aws'
+gem 'mini_magick'
 
 group :production do
   gem 'unicorn'
