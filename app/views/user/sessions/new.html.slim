@@ -1,6 +1,6 @@
 - content_for :title, 'Log In'
 
-= form_for :session, url: sessions_path, method: :post  do |form|
+= form_for :session, url: session_path, method: :post  do |form|
   .form-group
     = form.label :email, nil, class: 'control-label'
     = form.text_field :email, class: 'form-control input-lg'

@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class User::UsersController < ApplicationController
+  before_action :require_user, except: [:new, :create]
 
   def show
   end
@@ -31,7 +32,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def password
+  def destroy
+    if user.destroy
+      session[:user_id] = nil
+      flash[:success] = 'Your account has been deleted along with all data associated with it.'
+      redirect_to root_path
+    end
   end
 
   private
@@ -41,9 +47,8 @@ class UsersController < ApplicationController
   end
 
   def user
-    @user ||= User.find(params[:id])
+    @user ||= current_user
   end
 
   helper_method :user
-
 end
