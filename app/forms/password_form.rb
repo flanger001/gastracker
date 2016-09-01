@@ -30,6 +30,8 @@ class PasswordForm
     self.original_password = params[:original_password]
     self.new_password = params[:new_password]
     self.new_password_confirmation = params[:new_password_confirmation]
-    user.update(password: new_password)
+    if valid?
+      user.update(password: new_password)
+    end
   end
 end
