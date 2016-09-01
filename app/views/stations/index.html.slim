@@ -1,7 +1,5 @@
 - content_for :title, 'Station Manager'
 
-= render 'layouts/nav_tabs'
-
 table.table
   thead
     tr
@@ -28,4 +26,4 @@ table.table
             = link_to 'Edit', edit_station_path(row), class: 'btn btn-xs btn-warning'
             = link_to 'Destroy', row, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-xs btn-danger'
 
-= link_to 'New Station', new_station_path, class: 'btn btn-lg btn-success'
+= link_to 'Add New Station', new_station_path, class: 'btn btn-lg btn-success'

@@ -1,6 +1,6 @@
 - content_for :title, 'Add Fill-Up'
 
-= form_for resource do |form|
+= form_for [vehicle, resource] do |form|
   = render 'errors'
   = render 'fields', form: form
 

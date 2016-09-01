@@ -26,11 +26,11 @@
   = form.label :cost, class: 'control-label'
   = form.number_field :cost, step: '0.01', class: 'form-control input-lg'
 .row
-  div class="#{form.object.station ? 'col-sm-12' : 'col-sm-10'}"
+  div class="#{form.object.station.present? ? 'col-sm-12' : 'col-sm-10'}"
     .form-group
       = form.label :station_id, class: 'control-label'
       = form.collection_select :station_id, stations, :id, Proc.new { |s| "#{s.name} - #{s.city}" }, { prompt: 'Please select a station' }, class: 'form-control input-lg'
-  - unless form.object.station
+  - unless form.object.station.present?
     .col-sm-2
       .form-group
         div style="margin-top: 26px;"

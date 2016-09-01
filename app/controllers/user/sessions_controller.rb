@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class User::SessionsController < ApplicationController
   before_action :require_no_user, except: :destroy
 
   def new
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(resource_params[:password])
       session[:user_id] = user.id
       flash[:success] ='Logged in!'
-      redirect_to home_path
+      redirect_to dashboard_path
     else
       flash[:error] = 'Unable to log in. Please try again.'
       redirect_to login_path
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to home_path, success: 'Logged out!'
+    redirect_to root_path, success: 'Logged out!'
   end
 
   private

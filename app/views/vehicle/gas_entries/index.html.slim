@@ -1,17 +1,17 @@
-- content_for :title, 'All Gas Entries'
+- content_for :title, "All Gas Entries for #{vehicle.full_name}"
 
 table.table.table-hover
   thead
     tr
       th Date
-      th Vehicle
+      th Cost
       th Actions
   tbody
     - collection.each do |row|
       tr
-        td= link_to row.date.try(:to_s, :long), row
-        td= row.vehicle.try(:name)
+        td= link_to row.date.try(:to_s, :long), vehicle_gas_entry_path(vehicle, row)
+        td= number_to_currency row.cost
         td
           .btn-toolbar
-            = link_to 'Edit', edit_gas_entry_path(row), class: 'btn btn-warning btn-xs'
-            = link_to 'Delete', gas_entry_path(row), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+            = link_to 'Edit', edit_vehicle_gas_entry_path(vehicle, row), class: 'btn btn-warning btn-xs'
+            = link_to 'Delete', vehicle_gas_entry_path(vehicle, row), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }

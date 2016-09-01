@@ -39,17 +39,14 @@ class StationsController < ApplicationController
   private
 
   def resource
-    @station ||= current_user.stations.find(params[:id])
+    @station ||= Station.find(params[:id])
   end
 
   def collection
-    @stations = current_user.stations.all
+    @stations = Station.where(user_id: current_user.id)
   end
-
-  helper_method :resource, :collection
 
   def resource_params
     params.require(:station).permit(:name, :address, :city, :state, :zip, :phone)
   end
-
 end

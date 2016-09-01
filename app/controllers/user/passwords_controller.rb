@@ -1,4 +1,4 @@
-class PasswordsController < ApplicationController
+class User::PasswordsController < ApplicationController
   before_action :require_user
 
   def new
@@ -6,7 +6,7 @@ class PasswordsController < ApplicationController
 
   def create
     if password_form.submit(params[:password_form])
-      redirect_to current_user, notice: 'Successfully changed password'
+      redirect_to user_path, notice: 'Successfully changed password'
     else
       render :new
     end
