@@ -19,6 +19,7 @@ gem 'newrelic_rpm'
 gem 'dotenv-rails'
 gem 'carrierwave-aws'
 gem 'mini_magick'
+gem 'cancancan'
 
 group :production do
   gem 'unicorn'
@@ -30,9 +31,12 @@ group :development do
   gem 'spring'
   gem 'byebug'
   gem 'web-console'
+  gem 'pry-rails'
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'minitest-reporters'
   gem 'capybara'
   gem 'capybara-webkit'
