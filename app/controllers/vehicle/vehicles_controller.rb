@@ -1,6 +1,4 @@
 class Vehicle::VehiclesController < ApplicationController
-  layout 'vehicle'
-
   def show
   end
 
@@ -33,12 +31,14 @@ class Vehicle::VehiclesController < ApplicationController
     redirect_to vehicles_url, notice: 'Vehicle was successfully destroyed.'
   end
 
+  private
+
   def collection
-    @collection ||= Vehicle.includes(:user).where(user: current_user)
+    @collection ||= Vehicle.includes(:user).where(user_id: current_user.id)
   end
 
   def resource
-    @resource ||= Vehicle.includes(:user).where(user: current_user).find(params[:id])
+    @resource ||= Vehicle.includes(:user).where(user_id: current_user.id).find(params[:id])
   end
 
   def vehicle_params

@@ -1,6 +1,4 @@
 class Vehicle::GasEntriesController < ApplicationController
-  layout 'gas_entry'
-
   def index
   end
 
@@ -18,7 +16,7 @@ class Vehicle::GasEntriesController < ApplicationController
     end
     if resource.save
       flash[:success] = 'Fill-up added successfully!'
-      redirect_to gas_entries_path
+      redirect_to vehicle_gas_entries_path(vehicle)
     else
       flash[:error] = 'Unable to save fill-up!'
       render :new
@@ -31,7 +29,7 @@ class Vehicle::GasEntriesController < ApplicationController
   def update
     if resource.update(resource_params)
       flash[:success] = 'Fill-up edited successfully!'
-      redirect_to gas_entries_path
+      redirect_to vehicle_gas_entries_path(vehicle)
     else
       flash[:error] = 'Unable to edit fill-up!'
       render :edit
@@ -41,7 +39,7 @@ class Vehicle::GasEntriesController < ApplicationController
   def destroy
     resource.destroy
     flash[:success] = 'Fill-up deleted successfully!'
-    redirect_to gas_entries_path
+    redirect_to vehicle_gas_entries_path(vehicle)
   end
 
   private
@@ -64,7 +62,7 @@ class Vehicle::GasEntriesController < ApplicationController
 
   def collection
     @collection ||= GasEntry.includes(:user, :vehicle)
-                      .where(user: current_user, vehicle: vehicle)
+                      .where(user_id: current_user.id, vehicle: vehicle)
                       .only_this_year
   end
 
@@ -80,5 +78,5 @@ class Vehicle::GasEntriesController < ApplicationController
     @stations = Station.includes(:user).where(user: current_user)
   end
 
-  helper_method :resource, :collection, :vehicle, :stations
+  helper_method :vehicle, :stations
 end

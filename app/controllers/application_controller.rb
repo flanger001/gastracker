@@ -17,16 +17,12 @@ class ApplicationController < ActionController::Base
     current_user.persisted?
   end
 
-  def home_path
-    user_logged_in? ? dashboards_path : root_path
-  end
-
   def require_user
-    redirect_to home_path if current_user.guest?
+    redirect_to root_path if current_user.guest?
   end
 
   def require_no_user
-    redirect_to home_path unless current_user.guest?
+    redirect_to root_path unless current_user.guest?
   end
 
   def resource
@@ -37,6 +33,5 @@ class ApplicationController < ActionController::Base
     raise 'define a `collection`'
   end
 
-
-  helper_method :current_user, :user_logged_in?, :home_path, :collection, :resource
+  helper_method :current_user, :user_logged_in?, :collection, :resource
 end

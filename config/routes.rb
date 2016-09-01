@@ -1,26 +1,23 @@
 Rails.application.routes.draw do
   root 'pages#index'
-  get 'index', to: 'pages#index'
   get 'about', to: 'pages#about'
 
-  get 'login', to: 'sessions#new'
-  match 'logout', to: 'sessions#destroy', via: [:get, :post]
+  get 'login', to: 'user/sessions#new'
+  match 'logout', to: 'user/sessions#destroy', via: [:get, :post]
 
-  resources :users
-  resources :passwords
-  resources :sessions
-  resources :gas_entries
-  controller :gas_entries do
-    get 'instructions' => :instructions
-    get 'statistics' => :statistics
+  scope module: :user do
+    resource :user, path: 'account'
+    resource :password, only: [:new, :create]
+    resource :session, only: [:new, :create, :destroy]
   end
-  resources :dashboards, path: 'dashboard', only: :index
+
+  resources :gas_entries
+
+  resource :dashboard, only: [:show]
+  get 'instructions', to: 'dashboards#instructions'
+
   resources :stations
   resources :vehicles, module: 'vehicle' do
     resources :gas_entries
-    member do
-      resources :gas_entries
-      resources :statistics, only: :index
-    end
   end
 end
