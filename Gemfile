@@ -35,6 +35,8 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'minitest-reporters'
   gem 'capybara'
   gem 'capybara-webkit'
