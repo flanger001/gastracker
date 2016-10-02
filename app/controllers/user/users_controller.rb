@@ -14,6 +14,7 @@ class User::UsersController < ApplicationController
   def create
     @user = User.new(resource_params)
     if user.save
+      UserMailer.welcome(user).deliver_now
       session[:user_id] = user.id
       flash[:success] = "#{user.name}, your account has been created and you are now logged in!"
       redirect_to root_path
