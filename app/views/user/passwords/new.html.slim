@@ -1,3 +1,5 @@
+- content_for :title, 'Change Password'
+
 = form_for password_form, url: password_path, method: :post do |form|
   - if password_form.errors.any?
     .error_messages
