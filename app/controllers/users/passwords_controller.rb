@@ -1,4 +1,4 @@
-module User
+module Users
   class PasswordsController < ApplicationController
     before_action :require_user
 

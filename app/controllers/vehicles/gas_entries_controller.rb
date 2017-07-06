@@ -1,4 +1,4 @@
-module Vehicle
+module Vehicles
   class GasEntriesController < ApplicationController
     def index
     end

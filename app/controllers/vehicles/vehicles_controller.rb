@@ -1,4 +1,4 @@
-module Vehicle
+module Vehicles
   class VehiclesController < ApplicationController
     def show
     end

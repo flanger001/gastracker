@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get '404', to: 'errors#not_found'
   get '500', to: 'errors#internal_server_error'
 
-  get 'login', to: 'user/sessions#new'
-  match 'logout', to: 'user/sessions#destroy', via: [:get, :post]
+  get 'login', to: 'users/sessions#new'
+  match 'logout', to: 'users/sessions#destroy', via: [:get, :post]
 
-  scope module: :user do
+  scope module: :users do
     resource :user, path: 'account'
     resource :password, only: [:new, :create]
     resource :session, only: [:new, :create, :destroy]
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'instructions', to: 'dashboards#instructions'
 
   resources :stations
-  resources :vehicles, module: 'vehicle' do
+  resources :vehicles, module: 'vehicles' do
     resources :gas_entries
   end
 end
