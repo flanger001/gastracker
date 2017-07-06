@@ -1,22 +1,3 @@
-# == Schema Information
-#
-# Table name: gas_entries
-#
-#  id               :integer          not null, primary key
-#  odometer         :integer          default(0)
-#  gallons          :float            default(0.0)
-#  distance         :float            default(0.0)
-#  created_at       :datetime
-#  updated_at       :datetime
-#  date             :date
-#  notes            :string(255)
-#  cost             :float            default(0.0)
-#  user_id          :integer
-#  station_id       :integer
-#  vehicle_id       :integer
-#  price_per_gallon :float            default(0.0)
-#
-
 class GasEntry < ActiveRecord::Base
   belongs_to :user
   belongs_to :station
