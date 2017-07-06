@@ -1,0 +1,13 @@
+<% body_title = capture do %>
+  <%= yield :title if content_for? :title %>
+<% end %>
+<div class="container-fluid">
+  <h1 class="page-title"><%= body_title %></h1>
+  <div class="content">
+    <% if content_for? :content %>
+      <%= yield :content %>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </div>
+</div>

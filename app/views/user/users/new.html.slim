@@ -1,8 +1,0 @@
-- content_for :title, 'Sign Up'
-
-= form_for user, url: user_path do |form|
-  = render 'user/users/errors'
-  = render 'user/users/fields', form: form
-  = render 'user/users/password', form: form
-  .form-group
-    = form.submit 'Sign Up', class: 'btn btn-lg btn-success'

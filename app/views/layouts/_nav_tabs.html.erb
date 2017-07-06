@@ -1,0 +1,11 @@
+<div class="toolbar">
+  <nav>
+    <ul class="nav nav-tabs">
+      <% nav_tabs.each do |link| %>
+        <li class="<%= active?(link.url) %>">
+          <%= link_to link.name, link.url %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

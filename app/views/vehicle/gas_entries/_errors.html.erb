@@ -1,0 +1,11 @@
+<% if resource.errors.any? %>
+  <div class="error">
+    <h2>Oops!</h2>
+    <p>There were some errors in your entry:</p>
+    <ul class="list-unstyled">
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

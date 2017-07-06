@@ -1,7 +1,0 @@
-- if resource.errors.any?
-  .error
-    h2 Oops!
-    p There were some errors in your entry:
-    ul.list-unstyled
-      - resource.errors.full_messages.each do |message|
-        li= message

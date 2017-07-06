@@ -1,9 +1,0 @@
-- body_title = capture do
-  = yield :title if content_for? :title
-.container-fluid
-  h1.page-title= body_title
-  .content
-    - if content_for? :content
-      = yield :content
-    - else
-      = yield

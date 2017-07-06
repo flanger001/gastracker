@@ -1,0 +1,19 @@
+<% content_for :title, resource.name %>
+<%= render 'layouts/nav_tabs' %>
+<p id="notice"><%= notice %></p>
+<address>
+  <%= resource.address %>
+  <br/>
+  <%= resource.city %>
+  <br/>
+  <%= resource.state %>
+  <br/>
+  <%= resource.zip %>
+  <br/>
+  <%= resource.phone %>
+</address>
+
+<div class="btn-toolbar">
+  <%= link_to 'Edit', edit_station_path(resource), class: 'btn btn-md btn-default' %>
+  <%= link_to 'Back', stations_path, class: 'btn btn-md btn-default' %>
+</div>

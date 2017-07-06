@@ -1,0 +1,10 @@
+<% content_for :title, 'My Account' %>
+<p><%= user.name %></p>
+<p><%= user.email %></p>
+<div class="btn-toolbar">
+  <%= link_to 'Update My Account', edit_user_path, class: 'btn btn-info' %>
+  <%= link_to 'Change Password', new_password_path, class: 'btn btn-warning' %>
+  <%= link_to 'Delete My Account', user_path, method: :delete,
+              data: { confirm: 'Are you sure? This will delete your account and all data associated with it. Press OK to continue.' },
+              class: 'btn btn-danger' %>
+</div>
