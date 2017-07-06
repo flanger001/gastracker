@@ -99,9 +99,6 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
-    jbuilder (2.3.0)
-      activesupport (>= 3.0.0, < 5)
-      multi_json (~> 1.2)
     jmespath (1.2.4)
       json_pure (>= 1.8.1)
     jquery-rails (4.0.4)
@@ -127,7 +124,6 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    multi_json (1.11.1)
     newrelic_rpm (3.15.2.317)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -246,7 +242,6 @@ DEPENDENCIES
   carrierwave-aws (= 1.0.0)
   dotenv-rails (= 2.0.2)
   factory_girl_rails (= 4.7.0)
-  jbuilder (~> 2.0)
   jquery-rails (= 4.0.4)
   mini_magick (= 4.5.1)
   minitest-reporters (= 1.1.3)
