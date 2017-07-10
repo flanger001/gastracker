@@ -1,5 +1,5 @@
 <% content_for :title, 'Edit Account' %>
 <%= form_for user, url: user_path do |form| %>
-  <%= render 'user/users/fields', form: form %>
+  <%= render 'users/users/fields', form: form %>
   <%= form.submit 'Update', class: 'btn btn-success btn-lg' %>
 <% end %>
