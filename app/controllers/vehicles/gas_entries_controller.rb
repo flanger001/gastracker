@@ -16,10 +16,10 @@ module Vehicles
         resource.station.user = current_user
       end
       if resource.save
-        flash[:success] = 'Fill-up added successfully!'
+        flash[:success] = "Fill-up added successfully!"
         redirect_to vehicle_gas_entries_path(vehicle)
       else
-        flash[:error] = 'Unable to save fill-up!'
+        flash[:error] = "Unable to save fill-up!"
         render :new
       end
     end
@@ -29,17 +29,17 @@ module Vehicles
 
     def update
       if resource.update(resource_params)
-        flash[:success] = 'Fill-up edited successfully!'
+        flash[:success] = "Fill-up edited successfully!"
         redirect_to vehicle_gas_entries_path(vehicle)
       else
-        flash[:error] = 'Unable to edit fill-up!'
+        flash[:error] = "Unable to edit fill-up!"
         render :edit
       end
     end
 
     def destroy
       resource.destroy
-      flash[:success] = 'Fill-up deleted successfully!'
+      flash[:success] = "Fill-up deleted successfully!"
       redirect_to vehicle_gas_entries_path(vehicle)
     end
 
@@ -62,9 +62,9 @@ module Vehicles
     end
 
     def collection
-      @collection ||= GasEntry.includes(:user, :vehicle)
-                        .where(user_id: current_user.id, vehicle: vehicle)
-                        .only_this_year
+      @collection ||= GasEntry.includes(:user, :vehicle).
+                        where(user_id: current_user.id, vehicle: vehicle).
+                        only_this_year
     end
 
     def resource

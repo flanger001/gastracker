@@ -26,11 +26,11 @@ class ApplicationController < ActionController::Base
   end
 
   def resource
-    raise 'define a `resource`'
+    raise "define a `resource`"
   end
 
   def collection
-    raise 'define a `collection`'
+    raise "define a `collection`"
   end
 
   helper_method :current_user, :user_logged_in?, :collection, :resource

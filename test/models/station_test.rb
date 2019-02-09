@@ -14,7 +14,7 @@
 #  user_id    :integer
 #
 
-require 'test_helper'
+require "test_helper"
 
 class StationTest < ActiveSupport::TestCase
   # test "the truth" do

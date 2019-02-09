@@ -7,7 +7,7 @@ module Users
 
     def create
       if password_form.submit(params[:password_form])
-        redirect_to user_path, notice: 'Successfully changed password'
+        redirect_to user_path, notice: "Successfully changed password"
       else
         render :new
       end

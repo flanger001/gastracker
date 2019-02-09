@@ -13,7 +13,7 @@ module Vehicles
     def create
       @resource = Vehicle.new(vehicle_params.merge(user: current_user))
       if resource.save
-        redirect_to resource, notice: 'Vehicle was successfully created.'
+        redirect_to resource, notice: "Vehicle was successfully created."
       else
         render action: :new
       end
@@ -21,7 +21,7 @@ module Vehicles
 
     def update
       if resource.update(vehicle_params)
-        redirect_to resource, notice: 'Vehicle was successfully updated.'
+        redirect_to resource, notice: "Vehicle was successfully updated."
       else
         render action: :edit
       end
@@ -29,7 +29,7 @@ module Vehicles
 
     def destroy
       resource.destroy
-      redirect_to vehicles_url, notice: 'Vehicle was successfully destroyed.'
+      redirect_to vehicles_url, notice: "Vehicle was successfully destroyed."
     end
 
     private

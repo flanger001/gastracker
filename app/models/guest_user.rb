@@ -1,6 +1,6 @@
 class GuestUser
   def name
-    'Guest'
+    "Guest"
   end
 
   def email

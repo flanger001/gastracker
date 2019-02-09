@@ -12,8 +12,8 @@ class GasEntry < ActiveRecord::Base
 
   before_save :calculate_cost_or_ppg, unless: :photo?
 
-  scope :most_recent, -> { order('date desc') }
-  scope :this_year, -> { where('date >= ?', Time.now.at_beginning_of_year) }
+  scope :most_recent, -> { order("date desc") }
+  scope :this_year, -> { where("date >= ?", Time.now.at_beginning_of_year) }
   scope :only_this_year, -> { most_recent.this_year }
 
   def mpg

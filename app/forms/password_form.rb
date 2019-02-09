@@ -14,7 +14,7 @@ class PasswordForm
 
   def verify_original_password
     unless user.authenticate(original_password)
-      errors.add :original_password, 'is not correct'
+      errors.add :original_password, "is not correct"
     end
   end
 

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class VehiclesControllerTest < ActionController::TestCase
   setup do
@@ -17,7 +17,7 @@ class VehiclesControllerTest < ActionController::TestCase
   end
 
   test "should create vehicle" do
-    assert_difference('Vehicle.count') do
+    assert_difference("Vehicle.count") do
       post :create, vehicle: { make: @vehicle.brand, model: @vehicle.name, year: @vehicle.year }
     end
 
@@ -40,7 +40,7 @@ class VehiclesControllerTest < ActionController::TestCase
   end
 
   test "should destroy vehicle" do
-    assert_difference('Vehicle.count', -1) do
+    assert_difference("Vehicle.count", -1) do
       delete :destroy, id: @vehicle
     end
 

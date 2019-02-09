@@ -14,12 +14,12 @@
 #  user_id    :integer
 #
 
-require 'test_helper'
+require "test_helper"
 
 class GasEntryTest < ActiveSupport::TestCase
   fixtures :users, :vehicles, :stations
 
-  test 'calculates price per gallon only if cost present' do
+  test "calculates price per gallon only if cost present" do
     user = users(:one)
     gas_entry_data = {
       odometer: 123456,
@@ -35,7 +35,7 @@ class GasEntryTest < ActiveSupport::TestCase
     assert gas_entry.price_per_gallon > 0
   end
 
-  test 'calculates cost only if price per gallon present' do
+  test "calculates cost only if price per gallon present" do
     user = users(:one)
     gas_entry_data = {
       odometer: 123456,

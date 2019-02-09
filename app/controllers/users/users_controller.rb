@@ -20,7 +20,7 @@ module Users
         flash[:success] = "#{user.name}, your account has been created and you are now logged in!"
         redirect_to root_path
       else
-        flash[:error] = 'Unable to create user. Please try again!'
+        flash[:error] = "Unable to create user. Please try again!"
         render :new
       end
     end
@@ -37,7 +37,7 @@ module Users
     def destroy
       if user.destroy
         session[:user_id] = nil
-        flash[:success] = 'Your account has been deleted along with all data associated with it.'
+        flash[:success] = "Your account has been deleted along with all data associated with it."
         redirect_to root_path
       end
     end
