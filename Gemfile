@@ -34,3 +34,7 @@ group :test do
   gem 'pry-rails', '0.3.4'
   gem 'rspec-rails', '3.5.2'
 end
+
+group :development, :test do
+  gem "rubocop", :require => false
+end
