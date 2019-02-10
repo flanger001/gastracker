@@ -9,7 +9,7 @@ module Users
       user = User.find_by_email(resource_params[:email].strip)
       if user && user.authenticate(resource_params[:password])
         session[:user_id] = user.id
-        flash[:success] ="Logged in!"
+        flash[:success] = "Logged in!"
         redirect_to dashboard_path
       else
         flash[:error] = "Unable to log in. Please try again."

@@ -10,6 +10,12 @@ Layout/DotPosition:
   Enabled: true
   EnforcedStyle: trailing
 
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
 Style/Documentation:
   Enabled: false
 
@@ -21,4 +27,3 @@ Style/StringLiterals:
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
-
