@@ -4,7 +4,8 @@ AllCops:
   # Prevent RuboCop from exploding when it finds an older-than-2.2 .ruby-version
   TargetRubyVersion: 2.5
   DisabledByDefault: true
-  Exclude: []
+  Exclude:
+    - "db/schema.rb"
 
 Layout/DotPosition:
   Enabled: true
@@ -30,3 +31,6 @@ Style/StringLiterals:
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
