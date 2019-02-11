@@ -3,11 +3,9 @@ class GuestUser
     "Guest"
   end
 
-  def email
-  end
+  def email; end
 
-  def id
-  end
+  def id; end
 
   def guest?
     true

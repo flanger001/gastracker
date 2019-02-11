@@ -2,8 +2,7 @@ module Users
   class SessionsController < ApplicationController
     before_action :require_no_user, except: :destroy
 
-    def new
-    end
+    def new; end
 
     def create
       user = User.find_by_email(resource_params[:email].strip)

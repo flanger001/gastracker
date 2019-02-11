@@ -166,23 +166,6 @@ Style/ClassAndModuleChildren:
   Exclude:
     - 'test/test_helper.rb'
 
-# Offense count: 43
-
-
-# Offense count: 14
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/stations_controller.rb'
-    - 'app/controllers/users/passwords_controller.rb'
-    - 'app/controllers/users/sessions_controller.rb'
-    - 'app/controllers/users/users_controller.rb'
-    - 'app/controllers/vehicles/gas_entries_controller.rb'
-    - 'app/controllers/vehicles/vehicles_controller.rb'
-    - 'app/models/guest_user.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/Encoding:

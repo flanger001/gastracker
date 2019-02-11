@@ -2,15 +2,13 @@ module Users
   class UsersController < ApplicationController
     before_action :require_user, except: [:new, :create]
 
-    def show
-    end
+    def show; end
 
     def new
       @user = User.new
     end
 
-    def edit
-    end
+    def edit; end
 
     def create
       @user = User.new(resource_params)

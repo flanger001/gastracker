@@ -19,6 +19,9 @@ Layout/SpaceInsideHashLiteralBraces:
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: compact
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 

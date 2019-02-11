@@ -1,10 +1,8 @@
 module Vehicles
   class GasEntriesController < ApplicationController
-    def index
-    end
+    def index; end
 
-    def show
-    end
+    def show; end
 
     def new
       @resource = GasEntry.new(user: current_user, date: Date.today, vehicle: vehicle)
@@ -24,8 +22,7 @@ module Vehicles
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if resource.update(resource_params)

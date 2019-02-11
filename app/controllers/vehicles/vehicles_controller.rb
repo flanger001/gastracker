@@ -1,14 +1,12 @@
 module Vehicles
   class VehiclesController < ApplicationController
-    def show
-    end
+    def show; end
 
     def new
       @resource = Vehicle.new(user: current_user)
     end
 
-    def edit
-    end
+    def edit; end
 
     def create
       @resource = Vehicle.new(vehicle_params.merge(user: current_user))
