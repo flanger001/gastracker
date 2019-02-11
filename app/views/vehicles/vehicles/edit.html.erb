@@ -1,7 +1,7 @@
 <% content_for :title, "Editing #{resource.year} #{resource.brand} #{resource.name}" %>
-<%= render 'form' %>
+<%= render "form" %>
 
 <div class="btn-toolbar">
-  <%= link_to 'Show', resource, class: 'btn btn-md btn-default' %>
-  <%= link_to 'Back', vehicles_path, class: 'btn btn-md btn-default' %>
+  <%= link_to "Show", resource, class: "btn btn-md btn-default" %>
+  <%= link_to "Back", vehicles_path, class: "btn btn-md btn-default" %>
 </div>

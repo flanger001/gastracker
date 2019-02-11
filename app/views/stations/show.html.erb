@@ -1,5 +1,5 @@
 <% content_for :title, resource.name %>
-<%= render 'layouts/nav_tabs' %>
+<%= render "layouts/nav_tabs" %>
 <p id="notice"><%= notice %></p>
 <address>
   <%= resource.address %>
@@ -14,6 +14,6 @@
 </address>
 
 <div class="btn-toolbar">
-  <%= link_to 'Edit', edit_station_path(resource), class: 'btn btn-md btn-default' %>
-  <%= link_to 'Back', stations_path, class: 'btn btn-md btn-default' %>
+  <%= link_to "Edit", edit_station_path(resource), class: "btn btn-md btn-default" %>
+  <%= link_to "Back", stations_path, class: "btn btn-md btn-default" %>
 </div>

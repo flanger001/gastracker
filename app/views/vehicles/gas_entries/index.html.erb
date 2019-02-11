@@ -14,8 +14,8 @@
         <td><%= number_to_currency row.cost %></td>
         <td>
           <div class="btn-toolbar">
-            <%= link_to 'Edit', edit_vehicle_gas_entry_path(vehicle, row), class: 'btn btn-warning btn-xs' %>
-            <%= link_to 'Delete', vehicle_gas_entry_path(vehicle, row), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' } %>
+            <%= link_to "Edit", edit_vehicle_gas_entry_path(vehicle, row), class: "btn btn-warning btn-xs" %>
+            <%= link_to "Delete", vehicle_gas_entry_path(vehicle, row), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "Are you sure?" } %>
           </div>
         </td>
       </tr>

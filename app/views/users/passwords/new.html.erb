@@ -1,4 +1,4 @@
-<% content_for :title, 'Change Password' %>
+<% content_for :title, "Change Password" %>
 <%= form_for password_form, url: password_path, method: :post do |form| %>
   <% if password_form.errors.any? %>
     <div class="error_messages">
@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <%= render 'fields', form: form %>
-  <%= form.submit 'Update Password', class: 'btn btn-lg btn-success' %>
+  <%= render "fields", form: form %>
+  <%= form.submit "Update Password", class: "btn btn-lg btn-success" %>
 <% end %>
 
 
