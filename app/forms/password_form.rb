@@ -13,9 +13,8 @@ class PasswordForm
   end
 
   def verify_original_password
-    unless user.authenticate(original_password)
-      errors.add :original_password, "is not correct"
-    end
+    return true if user.authenticate(original_password)
+    errors.add(:original_password, "is not correct")
   end
 
   def change_password
@@ -30,8 +29,7 @@ class PasswordForm
     self.original_password = params[:original_password]
     self.new_password = params[:new_password]
     self.new_password_confirmation = params[:new_password_confirmation]
-    if valid?
-      user.update(password: new_password)
-    end
+    return false unless valid?
+    user.update(password: new_password)
   end
 end

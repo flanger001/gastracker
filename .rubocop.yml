@@ -34,3 +34,6 @@ Style/StringLiteralsInInterpolation:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/GuardClause:
+  Enabled: true

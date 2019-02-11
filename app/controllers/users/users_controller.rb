@@ -36,8 +36,11 @@ module Users
       if user.destroy
         session[:user_id] = nil
         flash[:success] = "Your account has been deleted along with all data associated with it."
-        redirect_to root_path
+      else
+        session[:user_id] = nil
+        flash[:error] = "There was a problem deleting your account, but you have been logged out."
       end
+      redirect_to root_path
     end
 
     private

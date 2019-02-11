@@ -175,19 +175,6 @@ Style/ExpandPathArguments:
     - 'spec/rails_helper.rb'
     - 'test/test_helper.rb'
 
-# Offense count: 88
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: when_needed, always, never
-
-
-# Offense count: 3
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'app/controllers/users/users_controller.rb'
-    - 'app/forms/password_form.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
