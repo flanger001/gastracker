@@ -175,14 +175,6 @@ Style/ExpandPathArguments:
     - 'spec/rails_helper.rb'
     - 'test/test_helper.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
-  Exclude:
-    - 'Gemfile'
-    - 'app/controllers/vehicles/gas_entries_controller.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

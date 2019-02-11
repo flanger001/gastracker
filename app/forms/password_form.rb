@@ -4,9 +4,9 @@ class PasswordForm
   attr_accessor :original_password, :new_password, :user
 
   validate :verify_original_password
-  validates :original_password, :new_password, presence: true
-  validates :new_password, confirmation: true
-  validates :new_password, length: { minimum: 6 }
+  validates :original_password, :new_password, :presence => true
+  validates :new_password, :confirmation => true
+  validates :new_password, :length => { :minimum => 6 }
 
   def initialize(user)
     @user = user
@@ -30,6 +30,6 @@ class PasswordForm
     self.new_password = params[:new_password]
     self.new_password_confirmation = params[:new_password_confirmation]
     return false unless valid?
-    user.update(password: new_password)
+    user.update(:password => new_password)
   end
 end

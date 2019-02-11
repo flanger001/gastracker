@@ -18,30 +18,30 @@ class VehiclesControllerTest < ActionController::TestCase
 
   test "should create vehicle" do
     assert_difference("Vehicle.count") do
-      post :create, vehicle: { make: @vehicle.brand, model: @vehicle.name, year: @vehicle.year }
+      post :create, :vehicle => { :make => @vehicle.brand, :model => @vehicle.name, :year => @vehicle.year }
     end
 
     assert_redirected_to vehicle_path(assigns(:vehicle))
   end
 
   test "should show vehicle" do
-    get :show, id: @vehicle
+    get :show, :id => @vehicle
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @vehicle
+    get :edit, :id => @vehicle
     assert_response :success
   end
 
   test "should update vehicle" do
-    patch :update, id: @vehicle, vehicle: { make: @vehicle.make, model: @vehicle.model, year: @vehicle.year }
+    patch :update, :id => @vehicle, :vehicle => { :make => @vehicle.make, :model => @vehicle.model, :year => @vehicle.year }
     assert_redirected_to vehicle_path(assigns(:vehicle))
   end
 
   test "should destroy vehicle" do
     assert_difference("Vehicle.count", -1) do
-      delete :destroy, id: @vehicle
+      delete :destroy, :id => @vehicle
     end
 
     assert_redirected_to vehicles_path

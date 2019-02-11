@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "General routes", type: :routing do
+RSpec.describe "General routes", :type => :routing do
   it "routes root to PagesController" do
     expect(get("/")).to route_to "pages#index"
   end

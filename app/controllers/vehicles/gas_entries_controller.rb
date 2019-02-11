@@ -5,11 +5,11 @@ module Vehicles
     def show; end
 
     def new
-      @resource = GasEntry.new(user: current_user, date: Date.today, vehicle: vehicle)
+      @resource = GasEntry.new(:user => current_user, :date => Date.today, :vehicle => vehicle)
     end
 
     def create
-      @resource = GasEntry.new(resource_params.merge(user: current_user, vehicle: vehicle))
+      @resource = GasEntry.new(resource_params.merge(:user => current_user, :vehicle => vehicle))
       if resource.station
         resource.station.user = current_user
       end
@@ -60,7 +60,7 @@ module Vehicles
 
     def collection
       @collection ||= GasEntry.includes(:user, :vehicle).
-                        where(user_id: current_user.id, vehicle: vehicle).
+                        where(:user_id => current_user.id, :vehicle => vehicle).
                         only_this_year
     end
 
@@ -73,7 +73,7 @@ module Vehicles
     end
 
     def stations
-      @stations = Station.includes(:user).where(user: current_user)
+      @stations = Station.includes(:user).where(:user => current_user)
     end
 
     helper_method :vehicle, :stations

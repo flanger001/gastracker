@@ -22,11 +22,11 @@ class GasEntryTest < ActiveSupport::TestCase
   test "calculates price per gallon only if cost present" do
     user = users(:one)
     gas_entry_data = {
-      odometer: 123456,
-      gallons: 13.259,
-      distance: 420,
-      date: DateTime.now,
-      cost: 35.19
+      :odometer => 123456,
+      :gallons => 13.259,
+      :distance => 420,
+      :date => DateTime.now,
+      :cost => 35.19
     }
     gas_entry = user.gas_entries.build(gas_entry_data)
     assert_nil gas_entry.price_per_gallon
@@ -38,11 +38,11 @@ class GasEntryTest < ActiveSupport::TestCase
   test "calculates cost only if price per gallon present" do
     user = users(:one)
     gas_entry_data = {
-      odometer: 123456,
-      gallons: 13.259,
-      distance: 420,
-      date: DateTime.now,
-      price_per_gallon: 2.229
+      :odometer => 123456,
+      :gallons => 13.259,
+      :distance => 420,
+      :date => DateTime.now,
+      :price_per_gallon => 2.229
     }
     gas_entry = user.gas_entries.build(gas_entry_data)
     assert_nil gas_entry.cost

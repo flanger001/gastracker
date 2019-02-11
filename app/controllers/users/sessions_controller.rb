@@ -1,6 +1,6 @@
 module Users
   class SessionsController < ApplicationController
-    before_action :require_no_user, except: :destroy
+    before_action :require_no_user, :except => :destroy
 
     def new; end
 
@@ -18,7 +18,7 @@ module Users
 
     def destroy
       session[:user_id] = nil
-      redirect_to root_path, success: "Logged out!"
+      redirect_to root_path, :success => "Logged out!"
     end
 
     private

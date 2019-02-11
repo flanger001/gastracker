@@ -1,6 +1,6 @@
 module Users
   class UsersController < ApplicationController
-    before_action :require_user, except: [:new, :create]
+    before_action :require_user, :except => [:new, :create]
 
     def show; end
 
