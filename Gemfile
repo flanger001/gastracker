@@ -11,7 +11,7 @@ gem "mini_magick", "4.5.1"
 gem "newrelic_rpm"
 gem "pg", "0.18.2"
 gem "rails", "4.2.11"
-gem "sass-rails", "5.0.3"
+gem "sass-rails"
 gem "puma"
 gem "uglifier", ">= 1.3.0"
 
