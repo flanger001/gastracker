@@ -1,49 +1,49 @@
 <div class="form-group">
-  <%= form.label :vehicle_id, class: 'control-label' %>
+  <%= form.label :vehicle_id, class: "control-label" %>
   <p class="form-control-static"><%= vehicle.full_name %></p>
 </div>
 <div class="form-group">
-  <%= form.label :date, class: 'control-label' %>
-  <%= form.date_field :date, class: 'form-control input-lg' %>
+  <%= form.label :date, class: "control-label" %>
+  <%= form.date_field :date, class: "form-control input-lg" %>
 </div>
 <div class="row">
   <div class="col-xs-6">
     <div class="form-group">
-      <%= form.label :odometer, class: 'control-label' %>
-      <%= form.number_field :odometer, class: 'form-control input-lg' %>
+      <%= form.label :odometer, class: "control-label" %>
+      <%= form.number_field :odometer, class: "form-control input-lg" %>
     </div>
   </div>
   <div class="col-xs-6">
     <div class="form-group">
-      <%= form.label :distance, class: 'control-label' %>
-      <%= form.number_field :distance, step: '0.1', class: 'form-control input-lg' %>
+      <%= form.label :distance, class: "control-label" %>
+      <%= form.number_field :distance, step: "0.1", class: "form-control input-lg" %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-6">
     <div class="form-group">
-      <%= form.label :gallons, class: 'control-label' %>
-      <%= form.number_field :gallons, step: '0.001', class: 'form-control input-lg' %>
+      <%= form.label :gallons, class: "control-label" %>
+      <%= form.number_field :gallons, step: "0.001", class: "form-control input-lg" %>
     </div>
   </div>
   <div class="col-xs-6">
     <div class="form-group">
-      <%= form.label :price_per_gallon, class: 'control-label' %>
-      <%= form.number_field :price_per_gallon, step: '0.001', min: 0, class: 'form-control input-lg' %>
+      <%= form.label :price_per_gallon, class: "control-label" %>
+      <%= form.number_field :price_per_gallon, step: "0.001", min: 0, class: "form-control input-lg" %>
     </div>
   </div>
 </div>
 <div class="form-group">
-  <%= form.label :cost, class: 'control-label' %>
-  <%= form.number_field :cost, step: '0.01', class: 'form-control input-lg' %>
+  <%= form.label :cost, class: "control-label" %>
+  <%= form.number_field :cost, step: "0.01", class: "form-control input-lg" %>
 </div>
 <div class="row">
   <div
-  class="<%= form.object.station.present? ? 'col-sm-12' : 'col-sm-10' %>">
+  class="<%= form.object.station.present? ? "col-sm-12" : "col-sm-10" %>">
     <div class="form-group">
-      <%= form.label :station_id, class: 'control-label' %>
-      <%= form.collection_select :station_id, stations, :id, Proc.new { |s| "#{s.name} - #{s.city}" }, { prompt: 'Please select a station' }, class: 'form-control input-lg' %>
+      <%= form.label :station_id, class: "control-label" %>
+      <%= form.collection_select :station_id, stations, :id, Proc.new { |s| "#{s.name} - #{s.city}" }, { prompt: "Please select a station" }, class: "form-control input-lg" %>
     </div>
   </div>
   <% unless form.object.station.present? %>
@@ -56,23 +56,23 @@
     </div>
   <% end %></div>
 <div class="form-group">
-  <%= form.label :notes, class: 'control-label' %>
-  <%= form.text_area :notes, class: 'form-control input-lg' %>
+  <%= form.label :notes, class: "control-label" %>
+  <%= form.text_area :notes, class: "form-control input-lg" %>
 </div>
 <% if form.object.photo.present? %>
   <div class="row">
     <div class="col-sm-6">
-      <%= image_tag form.object.photo.url, class: 'img-responsive' %>
+      <%= image_tag form.object.photo.url, class: "img-responsive" %>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <%= form.label :remove_photo, 'Remove photo?', class: 'control-label' %>
-        <%= form.check_box :remove_photo, class: 'form-control input-lg' %>
+        <%= form.label :remove_photo, "Remove photo?", class: "control-label" %>
+        <%= form.check_box :remove_photo, class: "form-control input-lg" %>
       </div>
     </div>
   </div>
 <% end %>
 <div class="form-group">
-  <%= form.label :photo, class: 'control-label' %>
-  <%= form.file_field :photo, class: 'form-control input-lg' %>
+  <%= form.label :photo, class: "control-label" %>
+  <%= form.file_field :photo, class: "form-control input-lg" %>
 </div>

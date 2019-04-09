@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery :with => :exception
 
   private
 
@@ -26,11 +26,11 @@ class ApplicationController < ActionController::Base
   end
 
   def resource
-    raise 'define a `resource`'
+    raise "define a `resource`"
   end
 
   def collection
-    raise 'define a `collection`'
+    raise "define a `collection`"
   end
 
   helper_method :current_user, :user_logged_in?, :collection, :resource

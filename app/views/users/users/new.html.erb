@@ -1,9 +1,9 @@
-<% content_for :title, 'Sign Up' %>
+<% content_for :title, "Sign Up" %>
 <%= form_for user, url: user_path do |form| %>
-  <%= render 'users/users/errors' %>
-  <%= render 'users/users/fields', form: form %>
-  <%= render 'users/users/password', form: form %>
+  <%= render "users/users/errors" %>
+  <%= render "users/users/fields", form: form %>
+  <%= render "users/users/password", form: form %>
   <div class="form-group">
-    <%= form.submit 'Sign Up', class: 'btn btn-lg btn-success' %>
+    <%= form.submit "Sign Up", class: "btn btn-lg btn-success" %>
   </div>
 <% end %>

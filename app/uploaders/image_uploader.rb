@@ -11,8 +11,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
 
-  version :thumbnail, if: :is_vehicle? do
-    process resize_to_fit: [64, 64]
+  version :thumbnail, :if => :is_vehicle? do
+    process :resize_to_fit => [64, 64]
   end
 
   def is_vehicle?(picture)

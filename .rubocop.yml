@@ -1,0 +1,45 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  # Prevent RuboCop from exploding when it finds an older-than-2.2 .ruby-version
+  TargetRubyVersion: 2.5
+  DisabledByDefault: true
+  Exclude:
+    - "db/schema.rb"
+
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: trailing
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: compact
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/GuardClause:
+  Enabled: true
