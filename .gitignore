@@ -15,6 +15,6 @@
 /log/*.log
 /tmp
 .idea/*
-.env
-.env.*
+.env*
 /public/uploads/
+spec/examples.txt

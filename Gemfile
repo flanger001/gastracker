@@ -25,7 +25,7 @@ group :test do
   gem "factory_bot_rails"
   gem "minitest-reporters", "1.1.3"
   gem "pry-rails"
-  gem "rspec-rails", "3.5.2"
+  gem "rspec-rails"
 end
 
 group :development, :test do
