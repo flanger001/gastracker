@@ -23,7 +23,7 @@ end
 
 group :development do
   gem "spring", "1.7.1"
-  gem "web-console", "2.1.3"
+  gem "web-console"
 end
 
 group :test do
