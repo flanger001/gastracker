@@ -12,12 +12,8 @@ gem "newrelic_rpm"
 gem "pg", "0.18.2"
 gem "rails", "4.2.11"
 gem "sass-rails", "5.0.3"
-gem "thin", "1.6.3"
+gem "puma"
 gem "uglifier", ">= 1.3.0"
-
-group :production do
-  gem "unicorn", "4.9.0"
-end
 
 group :development do
   gem "spring", "1.7.1"
