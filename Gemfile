@@ -22,7 +22,6 @@ group :production do
 end
 
 group :development do
-  gem "quiet_assets", "1.1.0"
   gem "spring", "1.7.1"
   gem "web-console", "2.1.3"
 end
