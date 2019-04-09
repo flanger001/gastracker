@@ -16,7 +16,6 @@ gem "thin", "1.6.3"
 gem "uglifier", ">= 1.3.0"
 
 group :production do
-  gem "rails_12factor", "0.0.3"
   gem "unicorn", "4.9.0"
 end
 
