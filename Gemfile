@@ -16,7 +16,6 @@ gem "puma"
 gem "uglifier", ">= 1.3.0"
 
 group :development do
-  gem "spring", "1.7.1"
   gem "web-console"
 end
 

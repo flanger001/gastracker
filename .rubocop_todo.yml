@@ -72,12 +72,6 @@ Layout/TrailingBlankLines:
     - 'config/environments/production.rb'
     - 'db/seeds.rb'
 
-# Offense count: 1
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Exclude:
-    - 'bin/spring'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
