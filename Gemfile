@@ -3,7 +3,7 @@ ruby "2.5.1"
 
 gem "bcrypt", "3.1.10"
 gem "bootsnap"
-gem "bootstrap-sass", "3.3.5"
+gem "bootstrap-sass"
 gem "cancancan", "1.15.0"
 gem "carrierwave-aws"
 gem "dotenv-rails"
