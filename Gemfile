@@ -3,9 +3,9 @@ ruby "2.5.1"
 
 gem "bcrypt", "3.1.10"
 gem "bootsnap"
-gem "bootstrap-sass", "3.3.5"
+gem "bootstrap-sass"
 gem "cancancan", "1.15.0"
-gem "carrierwave-aws", "1.0.0"
+gem "carrierwave-aws"
 gem "dotenv-rails"
 gem "jquery-rails"
 gem "mini_magick", "4.5.1"
@@ -23,7 +23,6 @@ end
 group :test do
   gem "capybara"
   gem "factory_bot_rails"
-  gem "minitest-reporters", "1.1.3"
   gem "pry-rails"
   gem "rspec-rails"
 end
