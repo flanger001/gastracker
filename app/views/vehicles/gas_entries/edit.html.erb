@@ -1,5 +1,5 @@
 <% content_for :title, "Edit Gas Entry" %>
-<%= form_for [vehicle, resource] do |form| %>
+<%= form_with model: [vehicle, resource] do |form| %>
   <%= render "errors" %>
   <%= render "fields", form: form %>
   <br/>

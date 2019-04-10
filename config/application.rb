@@ -18,5 +18,6 @@ module GasTracker
 
     config.exceptions_app = self.routes
     config.action_view.form_with_generates_remote_forms = false
+    config.action_view.form_with_generates_ids = true
   end
 end
