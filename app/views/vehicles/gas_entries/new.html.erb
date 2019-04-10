@@ -1,5 +1,5 @@
 <% content_for :title, "Add Fill-Up" %>
-<%= form_for [vehicle, resource] do |form| %>
+<%= form_with model: [vehicle, resource] do |form| %>
   <%= render "errors" %>
   <%= render "fields", form: form %>
 

@@ -1,5 +1,5 @@
 <% content_for :title, "Change Password" %>
-<%= form_for password_form, url: password_path, method: :post do |form| %>
+<%= form_with model: password_form, url: password_path, method: :post do |form| %>
   <% if password_form.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>

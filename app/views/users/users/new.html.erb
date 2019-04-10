@@ -1,5 +1,5 @@
 <% content_for :title, "Sign Up" %>
-<%= form_for user, url: user_path do |form| %>
+<%= form_with model: user, url: user_path do |form| %>
   <%= render "users/users/errors" %>
   <%= render "users/users/fields", form: form %>
   <%= render "users/users/password", form: form %>
