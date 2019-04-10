@@ -1,0 +1,3 @@
+class GasEntryPolicy < ApplicationPolicy
+
+end
