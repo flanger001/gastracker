@@ -21,7 +21,7 @@ group :development do
 end
 
 group :test do
-  gem "capybara", "2.5.0"
+  gem "capybara"
   gem "factory_bot_rails"
   gem "minitest-reporters", "1.1.3"
   gem "pry-rails"
