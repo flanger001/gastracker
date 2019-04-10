@@ -1,49 +1,70 @@
 require "rails_helper"
 
 RSpec.describe StationsController do
-  setup do
-    @station = stations(:one)
-  end
+  let(:user) { create(:user) }
 
-  it "should get index" do
-    get :index
-    expect(response).to have_http_status(:success)
-    assert_not_nil assigns(:stations)
-  end
+  before { sign_in(user) }
 
-  it "should get new" do
-    get :new
-    expect(response).to have_http_status(:success)
-  end
-
-  it "should create station" do
-    assert_difference("Station.count") do
-      post :create, :station => {}
+  describe "GET /stations" do
+    it "returns a list of stations" do
+      get stations_path
+      expect(response).to have_http_status(:success)
     end
-
-    assert_redirected_to station_path(assigns(:station))
   end
 
-  it "should show station" do
-    get :show, :id => @station
-    expect(response).to have_http_status(:success)
-  end
-
-  it "should get edit" do
-    get :edit, :id => @station
-    expect(response).to have_http_status(:success)
-  end
-
-  it "should update station" do
-    patch :update, :id => @station, :station => {}
-    assert_redirected_to station_path(assigns(:station))
-  end
-
-  it "should destroy station" do
-    assert_difference("Station.count", -1) do
-      delete :destroy, :id => @station
+  describe "GET /stations/new" do
+    it "returns a new station form" do
+      get new_station_path
+      expect(response).to have_http_status(:success)
     end
+  end
 
-    assert_redirected_to stations_path
+  describe "POST /stations" do
+    let(:station_params) { attributes_for(:station, :user_id => user.id) }
+
+    it "creates a station" do
+      expect { post stations_path, params: { :station => station_params } }.to change { Station.count }.by(1)
+      follow_redirect!
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /stations/:id" do
+    let!(:station) { create(:station, :user_id => user.id) }
+
+    it "shows a station" do
+      get stations_path(station)
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /stations/:id/edit" do
+    let!(:station) { create(:station, :user_id => user.id) }
+
+    it "returns an edit station" do
+      get edit_station_path(station)
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "PATCH /stations/:id" do
+    let!(:station) { create(:station, :user_id => user.id) }
+    let(:station_params) { attributes_for(:station, :user_id => user.id, :name => "Fresh") }
+
+    it "updates a station" do
+      expect { patch station_path(station), :params => { :station => station_params } }.to change { station.reload.name }.to(station_params[:name])
+      follow_redirect!
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "DELETE /stations/:id" do
+    let!(:station) { create(:station, :user_id => user.id) }
+
+    it "destroys a station" do
+      expect { delete station_path(station) }.to change { Station.count }.by(-1)
+      follow_redirect!
+      expect(response).to have_http_status(:success)
+    end
   end
 end

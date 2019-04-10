@@ -1,37 +1,34 @@
 require "rails_helper"
 
 RSpec.describe GasEntry do
-  fixtures :users, :vehicles, :stations
+  describe "#calculate_cost_or_ppg" do
+    let(:gas_entry_params) do
+      {
+        :odometer => 123456,
+        :gallons => 13.259,
+        :distance => 420,
+        :date => DateTime.now
+      }
+    end
 
-  test "calculates price per gallon only if cost present" do
-    user = users(:one)
-    gas_entry_data = {
-      :odometer => 123456,
-      :gallons => 13.259,
-      :distance => 420,
-      :date => DateTime.now,
-      :cost => 35.19
-    }
-    gas_entry = user.gas_entries.build(gas_entry_data)
-    assert_nil gas_entry.price_per_gallon
+    subject { gas_entry.calculate_cost_or_ppg }
 
-    gas_entry.save
-    assert gas_entry.price_per_gallon > 0
-  end
+    context "if cost present" do
+      let(:gas_entry) { build(:gas_entry, **gas_entry_params, :cost => 35.19) }
 
-  test "calculates cost only if price per gallon present" do
-    user = users(:one)
-    gas_entry_data = {
-      :odometer => 123456,
-      :gallons => 13.259,
-      :distance => 420,
-      :date => DateTime.now,
-      :price_per_gallon => 2.229
-    }
-    gas_entry = user.gas_entries.build(gas_entry_data)
-    assert_nil gas_entry.cost
+      it "calculates price per gallon" do
+        subject
+        expect(gas_entry.price_per_gallon.round(3)).to eq(2.654)
+      end
+    end
 
-    gas_entry.save
-    assert gas_entry.cost > 0
+    context "if price per gallon present" do
+      let(:gas_entry) { build(:gas_entry, **gas_entry_params, :price_per_gallon => 2.229) }
+
+      it "calculates cost" do
+        subject
+        expect(gas_entry.cost.round(3)).to eq(29.554)
+      end
+    end
   end
 end
