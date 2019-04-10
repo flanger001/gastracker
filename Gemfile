@@ -23,7 +23,6 @@ end
 group :test do
   gem "capybara"
   gem "factory_bot_rails"
-  gem "minitest-reporters", "1.1.3"
   gem "pry-rails"
   gem "rspec-rails"
 end
