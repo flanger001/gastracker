@@ -18,22 +18,22 @@ RSpec.describe "General routes", :type => :routing do
   end
 
   it "routes login and logout to  User::SessionsController" do
-    expect(get("login")).to route_to("user/sessions#new")
-    expect(get("logout")).to route_to("user/sessions#destroy")
+    expect(get("login")).to route_to("users/sessions#new")
+    expect(get("logout")).to route_to("users/sessions#destroy")
   end
 
   it "routes account to to User::UsersController" do
-    expect(get("account")).to route_to("user/users#show")
+    expect(get("account")).to route_to("users/users#show")
   end
 
   it "routes password/new and create to User::PasswordsController" do
-    expect(get("password/new")).to route_to("user/passwords#new")
-    expect(post("password")).to route_to("user/passwords#create")
+    expect(get("password/new")).to route_to("users/passwords#new")
+    expect(post("password")).to route_to("users/passwords#create")
   end
 
   it "routes direct session links to User::SessionsController" do
-    expect(get("session/new")).to route_to("user/sessions#new")
-    expect(post("session")).to route_to("user/sessions#create")
-    expect(delete("session")).to route_to("user/sessions#destroy")
+    expect(get("session/new")).to route_to("users/sessions#new")
+    expect(post("session")).to route_to("users/sessions#create")
+    expect(delete("session")).to route_to("users/sessions#destroy")
   end
 end

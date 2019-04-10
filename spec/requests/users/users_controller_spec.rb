@@ -1,7 +1,7 @@
-require "test_helper"
+require "rails_helper"
 
-class UsersControllerTest < ActionController::TestCase
-  test "can create a new user" do
+RSpec.describe Users::UsersController do
+  it "can create a new user" do
     assert_difference("User.count") do
       post :create, :user => { :name => "Jane Doe", :email => "bar@example.com", :password => "p@ssw0rd", :password_confirmation => "p@ssw0rd" }
     end

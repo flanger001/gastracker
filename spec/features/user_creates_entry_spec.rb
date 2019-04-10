@@ -1,6 +1,6 @@
-require "test_helper"
+require "rails_helper"
 
-class UserCreatesEntryTest < ActionDispatch::IntegrationTest
+RSpec.describe "UserCreatesEntry" do
   test "user creates entry" do
     visit gas_entries_path
     assert_equal page.status_code, 200

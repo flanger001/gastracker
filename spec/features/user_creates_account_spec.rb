@@ -1,6 +1,6 @@
-require "test_helper"
+require "rails_helper"
 
-class UserCreatesAccountTest < ActionDispatch::IntegrationTest
+RSpec.describe "UserCreatesAccount" do
 
   test "user creates account" do
     visit root_path

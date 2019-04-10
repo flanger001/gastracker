@@ -1,22 +1,6 @@
-# == Schema Information
-#
-# Table name: gas_entries
-#
-#  id         :integer          not null, primary key
-#  odometer   :integer          default(0)
-#  gallons    :float            default(0.0)
-#  distance   :float            default(0.0)
-#  created_at :datetime
-#  updated_at :datetime
-#  date       :date
-#  notes      :string(255)
-#  cost       :float            default(0.0)
-#  user_id    :integer
-#
+require "rails_helper"
 
-require "test_helper"
-
-class GasEntryTest < ActiveSupport::TestCase
+RSpec.describe GasEntry do
   fixtures :users, :vehicles, :stations
 
   test "calculates price per gallon only if cost present" do
