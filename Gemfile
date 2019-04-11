@@ -11,6 +11,7 @@ gem "mini_magick", "4.5.1"
 gem "newrelic_rpm"
 gem "pg", "0.18.2"
 gem "puma"
+gem "pry-rails"
 gem "pundit", "~> 2.0"
 gem "rails", "5.2.3"
 gem "sass-rails"
@@ -23,7 +24,6 @@ end
 group :test do
   gem "capybara"
   gem "factory_bot_rails"
-  gem "pry-rails"
   gem "rspec-rails"
 end
 
