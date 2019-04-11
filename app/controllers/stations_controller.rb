@@ -1,17 +1,26 @@
 class StationsController < ApplicationController
+  # NB: This requires a user but I have locked down permissions for stations at the moment
   before_action :require_user
 
-  def index; end
+  def index
+    authorize(Station)
+  end
 
-  def show; end
+  def show
+    authorize(Station)
+  end
 
   def new
+    authorize(Station)
     @station = current_user.stations.build
   end
 
-  def edit; end
+  def edit
+    authorize(Station)
+  end
 
   def create
+    authorize(Station)
     @station = current_user.stations.build(resource_params)
     if resource.save
       redirect_to resource, :notice => "Station was successfully created."
@@ -21,6 +30,7 @@ class StationsController < ApplicationController
   end
 
   def update
+    authorize(Station)
     if resource.update(resource_params)
       redirect_to resource, :notice => "Station was successfully updated."
     else
@@ -29,6 +39,7 @@ class StationsController < ApplicationController
   end
 
   def destroy
+    authorize(Station)
     resource.destroy
     redirect_to stations_url, :notice => "Station was successfully destroyed."
   end
