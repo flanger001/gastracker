@@ -4,7 +4,8 @@ class User < ApplicationRecord
   validates :email, :uniqueness => true
   validates :name, :presence => true
 
-  has_many :stations, :dependent => :destroy
+  has_many :user_stations, :dependent => :destroy
+  has_many :stations, :through => :user_stations
   has_many :vehicles, :dependent => :destroy
   has_many :gas_entries, :through => :vehicles
 

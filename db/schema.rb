@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_210133) do
+ActiveRecord::Schema.define(version: 2019_04_11_210638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2019_04_11_210133) do
     t.integer "user_id"
   end
 
+  create_table "user_stations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "station_id"
+    t.boolean "favorite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_user_stations_on_station_id"
+    t.index ["user_id"], name: "index_user_stations_on_user_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -63,4 +73,6 @@ ActiveRecord::Schema.define(version: 2019_04_11_210133) do
     t.string "photo"
   end
 
+  add_foreign_key "user_stations", "stations"
+  add_foreign_key "user_stations", "users"
 end
