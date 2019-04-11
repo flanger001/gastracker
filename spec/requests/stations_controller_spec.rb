@@ -24,7 +24,7 @@ RSpec.describe StationsController do
       let(:station_params) { attributes_for(:station, :user_id => user.id) }
 
       it "creates a station" do
-        expect { post stations_path, params: { :station => station_params } }.to change { Station.count }.by(1)
+        expect { post stations_path, :params => { :station => station_params } }.to change { Station.count }.by(1)
         follow_redirect!
         expect(response).to have_http_status(:success)
       end

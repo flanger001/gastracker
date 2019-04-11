@@ -9,7 +9,6 @@ RSpec.describe "UserCreatesVehicle" do
     visit(new_vehicle_path)
 
     within("form") do
-
     end
   end
 end
