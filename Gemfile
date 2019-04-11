@@ -15,6 +15,7 @@ gem "pry-rails"
 gem "pundit", "~> 2.0"
 gem "rails", "5.2.3"
 gem "sass-rails"
+gem "sentry-raven", "~> 2.9"
 gem "uglifier", ">= 1.3.0"
 
 group :development do
