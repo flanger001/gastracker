@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_224727) do
+ActiveRecord::Schema.define(version: 2019_04_11_225719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "gas_entries", id: :serial, force: :cascade do |t|
-    t.integer "odometer", default: 0
+    t.float "odometer", default: 0.0
     t.float "gallons", default: 0.0
     t.float "distance", default: 0.0
     t.datetime "created_at", null: false
