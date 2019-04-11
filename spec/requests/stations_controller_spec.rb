@@ -21,7 +21,7 @@ RSpec.describe StationsController do
     end
 
     describe "POST /stations" do
-      let(:station_params) { attributes_for(:station, :user_id => user.id) }
+      let(:station_params) { attributes_for(:station) }
 
       it "creates a station" do
         expect { post stations_path, :params => { :station => station_params } }.to change { Station.count }.by(1)
@@ -31,7 +31,7 @@ RSpec.describe StationsController do
     end
 
     describe "GET /stations/:id" do
-      let!(:station) { create(:station, :user_id => user.id) }
+      let!(:station) { create(:station) }
 
       it "shows a station" do
         get stations_path(station)
@@ -40,7 +40,7 @@ RSpec.describe StationsController do
     end
 
     describe "GET /stations/:id/edit" do
-      let!(:station) { create(:station, :user_id => user.id) }
+      let!(:station) { create(:station) }
 
       it "returns an edit station form" do
         get edit_station_path(station)
@@ -51,8 +51,8 @@ RSpec.describe StationsController do
     end
 
     describe "PATCH /stations/:id" do
-      let!(:station) { create(:station, :user_id => user.id) }
-      let(:station_params) { attributes_for(:station, :user_id => user.id, :name => "Fresh") }
+      let!(:station) { create(:station) }
+      let(:station_params) { attributes_for(:station, :name => "Fresh") }
 
       it "updates a station" do
         expect { patch station_path(station), :params => { :station => station_params } }.to_not change { station.reload.name }
@@ -64,7 +64,7 @@ RSpec.describe StationsController do
     end
 
     describe "DELETE /stations/:id" do
-      let!(:station) { create(:station, :user_id => user.id) }
+      let!(:station) { create(:station) }
 
       it "destroys a station" do
         expect { delete station_path(station) }.to_not change { Station.count }
@@ -102,7 +102,7 @@ RSpec.describe StationsController do
     end
 
     describe "GET /stations/:id" do
-      let!(:station) { create(:station, :user_id => user.id) }
+      let!(:station) { create(:station) }
 
       it "redirects to the home page" do
         get stations_path(station)
@@ -112,7 +112,7 @@ RSpec.describe StationsController do
     end
 
     describe "GET /stations/:id/edit" do
-      let!(:station) { create(:station, :user_id => user.id) }
+      let!(:station) { create(:station) }
 
       it "redirects to the home page" do
         get edit_station_path(station)
@@ -122,8 +122,8 @@ RSpec.describe StationsController do
     end
 
     describe "PATCH /stations/:id" do
-      let!(:station) { create(:station, :user_id => user.id) }
-      let(:station_params) { attributes_for(:station, :user_id => user.id, :name => "Fresh") }
+      let!(:station) { create(:station) }
+      let(:station_params) { attributes_for(:station, :name => "Fresh") }
 
       it "redirects to the home page" do
         expect { patch station_path(station), :params => { :station => station_params } }.to_not change { station.reload.name }
@@ -133,7 +133,7 @@ RSpec.describe StationsController do
     end
 
     describe "DELETE /stations/:id" do
-      let!(:station) { create(:station, :user_id => user.id) }
+      let!(:station) { create(:station) }
 
       it "redirects to the home page" do
         expect { delete station_path(station) }.to_not change { Station.count }

@@ -1,4 +1,5 @@
 class Station < ApplicationRecord
   has_many :gas_entries
-  belongs_to :user, :optional => true
+  has_many :user_stations, :dependent => :destroy
+  has_many :users, :through => :user_stations
 end

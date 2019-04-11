@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Vehicles::GasEntriesController do
   let(:user) { create(:user) }
   let!(:vehicle) { create(:vehicle, :user_id => user.id) }
-  let!(:station) { create(:station, :user_id => user.id) }
+  let!(:station) { create(:station) }
   let(:required_params) { { :vehicle_id => vehicle.id, :station_id => station.id } }
 
   context "given an authenticated user" do
