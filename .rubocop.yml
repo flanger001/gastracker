@@ -43,3 +43,21 @@ Style/SymbolArray:
 
 Style/GuardClause:
   Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "config/**/*"
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "()"
+
+Metrics/LineLength:
+  Max: 220
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines

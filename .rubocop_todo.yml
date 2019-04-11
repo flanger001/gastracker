@@ -6,29 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'config/unicorn.rb'
-
-# Offense count: 9
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'test/controllers/pages_controller_test.rb'
-    - 'test/controllers/sessions_controller_test.rb'
-    - 'test/integration/user_creates_account_test.rb'
-    - 'test/integration/user_creates_station_test.rb'
-    - 'test/integration/user_creates_vehicle_test.rb'
-    - 'test/test_helper.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
@@ -36,7 +13,6 @@ Layout/ExtraSpacing:
   Exclude:
     - 'bin/setup'
     - 'config.ru'
-    - 'test/controllers/stations_controller_test.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -54,14 +30,6 @@ Layout/MultilineMethodCallIndentation:
   Exclude:
     - 'app/controllers/vehicles/gas_entries_controller.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented
-Layout/MultilineOperationIndentation:
-  Exclude:
-    - 'config/unicorn.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
@@ -71,13 +39,6 @@ Layout/TrailingBlankLines:
     - 'app/models/gas_entry.rb'
     - 'config/environments/production.rb'
     - 'db/seeds.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'config/unicorn.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -125,14 +86,6 @@ Performance/StringReplacement:
   Exclude:
     - 'app/helpers/application_helper.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, conditionals
-Style/AndOr:
-  Exclude:
-    - 'config/unicorn.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/BlockComments:
@@ -153,7 +106,6 @@ Style/BracesAroundHashParameters:
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'test/test_helper.rb'
 
 # Offense count: 9
 # Cop supports --auto-correct.
@@ -167,8 +119,6 @@ Style/ExpandPathArguments:
     - 'config/boot.rb'
     - 'config/environment.rb'
     - 'spec/rails_helper.rb'
-    - 'test/test_helper.rb'
-
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -190,14 +140,6 @@ Style/NumericLiterals:
 Style/NumericPredicate:
   Exclude:
     - 'spec/**/*'
-    - 'test/models/gas_entry_test.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'app/uploaders/image_uploader.rb'
 
 
 # Offense count: 1
@@ -233,8 +175,3 @@ Style/WordArray:
   EnforcedStyle: percent
   MinSize: 3
 
-# Offense count: 113
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Metrics/LineLength:
-  Max: 186
