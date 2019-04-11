@@ -2,10 +2,13 @@ module Users
   class SessionsController < ApplicationController
     before_action :require_no_user, :except => :destroy
 
-    def new; end
+    def new
+      authorize(:session, :new?)
+    end
 
     def create
-      user = User.find_by_email(resource_params[:email].strip)
+      authorize(:session, :create?)
+      user = User.find_by(:email => resource_params[:email].strip)
       if user && user.authenticate(resource_params[:password])
         session[:user_id] = user.id
         flash[:success] = "Logged in!"
@@ -17,6 +20,7 @@ module Users
     end
 
     def destroy
+      authorize(:session, :destroy?)
       session[:user_id] = nil
       redirect_to root_path, :success => "Logged out!"
     end
