@@ -2,7 +2,7 @@
 <% collection.each do |row| %>
   <div class="media">
     <div class="media-left">
-      <% if row.photo %>
+      <% if row.photo.present? %>
         <%= link_to row do %>
           <%= image_tag row.photo.thumbnail.url, class: "media-object" %>
         <% end %>

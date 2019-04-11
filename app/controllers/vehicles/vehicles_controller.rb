@@ -1,14 +1,24 @@
 module Vehicles
   class VehiclesController < ApplicationController
-    def show; end
-
-    def new
-      @resource = Vehicle.new(:user => current_user)
+    def index
+      authorize(collection)
     end
 
-    def edit; end
+    def show
+      authorize(resource)
+    end
+
+    def new
+      @resource = Vehicle.new
+      authorize(resource)
+    end
+
+    def edit
+      authorize(resource)
+    end
 
     def create
+      authorize(Vehicle)
       @resource = Vehicle.new(vehicle_params.merge(:user => current_user))
       if resource.save
         redirect_to resource, :notice => "Vehicle was successfully created."
@@ -18,6 +28,7 @@ module Vehicles
     end
 
     def update
+      authorize(resource)
       if resource.update(vehicle_params)
         redirect_to resource, :notice => "Vehicle was successfully updated."
       else
@@ -26,6 +37,7 @@ module Vehicles
     end
 
     def destroy
+      authorize(resource)
       resource.destroy
       redirect_to vehicles_url, :notice => "Vehicle was successfully destroyed."
     end
@@ -37,7 +49,7 @@ module Vehicles
     end
 
     def resource
-      @resource ||= Vehicle.includes(:user).where(:user_id => current_user.id).find(params[:id])
+      @resource ||= Vehicle.includes(:user).find(params[:id])
     end
 
     def vehicle_params
