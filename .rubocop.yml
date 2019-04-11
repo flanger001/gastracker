@@ -48,3 +48,7 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
     - "config/**/*"
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "()"

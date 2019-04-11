@@ -148,12 +148,6 @@ Style/NumericPredicate:
   Exclude:
     - 'spec/**/*'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'app/uploaders/image_uploader.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
