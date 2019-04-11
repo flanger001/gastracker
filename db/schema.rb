@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_222808) do
+ActiveRecord::Schema.define(version: 2019_04_11_224727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2019_04_11_222808) do
     t.integer "odometer", default: 0
     t.float "gallons", default: 0.0
     t.float "distance", default: 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.date "date"
     t.string "notes"
     t.float "cost"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2019_04_11_222808) do
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "name"
     t.index ["email"], name: "index_users_on_email"
   end
