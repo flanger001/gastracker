@@ -1,7 +1,8 @@
 class PasswordForm
   include ActiveModel::Model
 
-  attr_accessor :original_password, :new_password, :user
+  attr_reader :user
+  attr_accessor :original_password, :new_password
 
   validate :verify_original_password
   validates :original_password, :new_password, :presence => true
