@@ -12,12 +12,6 @@
 # SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
 Layout/EmptyLinesAroundClassBody:
   Exclude:
-    - 'test/controllers/pages_controller_test.rb'
-    - 'test/controllers/sessions_controller_test.rb'
-    - 'test/integration/user_creates_account_test.rb'
-    - 'test/integration/user_creates_station_test.rb'
-    - 'test/integration/user_creates_vehicle_test.rb'
-    - 'test/test_helper.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -26,7 +20,6 @@ Layout/ExtraSpacing:
   Exclude:
     - 'bin/setup'
     - 'config.ru'
-    - 'test/controllers/stations_controller_test.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -120,7 +113,6 @@ Style/BracesAroundHashParameters:
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'test/test_helper.rb'
 
 # Offense count: 9
 # Cop supports --auto-correct.
@@ -134,7 +126,6 @@ Style/ExpandPathArguments:
     - 'config/boot.rb'
     - 'config/environment.rb'
     - 'spec/rails_helper.rb'
-    - 'test/test_helper.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -156,7 +147,6 @@ Style/NumericLiterals:
 Style/NumericPredicate:
   Exclude:
     - 'spec/**/*'
-    - 'test/models/gas_entry_test.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
