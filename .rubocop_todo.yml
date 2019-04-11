@@ -6,16 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'config/unicorn.rb'
-
 # Offense count: 9
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
@@ -54,14 +44,6 @@ Layout/MultilineMethodCallIndentation:
   Exclude:
     - 'app/controllers/vehicles/gas_entries_controller.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented
-Layout/MultilineOperationIndentation:
-  Exclude:
-    - 'config/unicorn.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
@@ -71,13 +53,6 @@ Layout/TrailingBlankLines:
     - 'app/models/gas_entry.rb'
     - 'config/environments/production.rb'
     - 'db/seeds.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'config/unicorn.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -125,14 +100,6 @@ Performance/StringReplacement:
   Exclude:
     - 'app/helpers/application_helper.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, conditionals
-Style/AndOr:
-  Exclude:
-    - 'config/unicorn.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/BlockComments:
@@ -169,7 +136,6 @@ Style/ExpandPathArguments:
     - 'spec/rails_helper.rb'
     - 'test/test_helper.rb'
 
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
@@ -198,7 +164,6 @@ Style/NumericPredicate:
 Style/PercentLiteralDelimiters:
   Exclude:
     - 'app/uploaders/image_uploader.rb'
-
 
 # Offense count: 1
 # Cop supports --auto-correct.
