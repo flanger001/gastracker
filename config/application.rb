@@ -16,7 +16,6 @@ module GasTracker
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.exceptions_app = self.routes
     config.action_view.form_with_generates_remote_forms = false
     config.action_view.form_with_generates_ids = true
   end
