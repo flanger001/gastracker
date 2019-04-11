@@ -182,8 +182,3 @@ Style/WordArray:
   EnforcedStyle: percent
   MinSize: 3
 
-# Offense count: 113
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Metrics/LineLength:
-  Max: 186
