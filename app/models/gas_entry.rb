@@ -1,4 +1,4 @@
-class GasEntry < ActiveRecord::Base
+class GasEntry < ApplicationRecord
   belongs_to :station
   belongs_to :vehicle
   accepts_nested_attributes_for :station

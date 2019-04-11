@@ -1,4 +1,4 @@
-class Vehicle < ActiveRecord::Base
+class Vehicle < ApplicationRecord
   belongs_to :user
   has_many :gas_entries
 
