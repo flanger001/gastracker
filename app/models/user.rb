@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true
   validates :name, :presence => true
 
-  has_many :gas_entries, :dependent => :destroy
   has_many :stations, :dependent => :destroy
   has_many :vehicles, :dependent => :destroy
+  has_many :gas_entries, :through => :vehicles
 
   def self.from_session(session)
     if session[:user_id]

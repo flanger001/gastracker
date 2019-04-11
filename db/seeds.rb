@@ -83,7 +83,9 @@ user.vehicles.create!(
 
 vehicle = user.vehicles.first
 
+station = Station.create(name: "Test Station")
+
 entries.each do |entry|
-  user.gas_entries.create!(entry.merge(vehicle: vehicle))
+  vehicle.gas_entries.create!(entry.merge(:station => station))
 end
 

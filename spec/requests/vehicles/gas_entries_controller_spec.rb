@@ -4,7 +4,7 @@ RSpec.describe Vehicles::GasEntriesController do
   let(:user) { create(:user) }
   let!(:vehicle) { create(:vehicle, :user_id => user.id) }
   let!(:station) { create(:station, :user_id => user.id) }
-  let(:required_params) { { :user_id => user.id, :vehicle_id => vehicle.id, :station_id => station.id } }
+  let(:required_params) { { :vehicle_id => vehicle.id, :station_id => station.id } }
 
   context "given an authenticated user" do
     before { sign_in(user) }

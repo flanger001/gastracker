@@ -10,13 +10,13 @@ module Vehicles
 
     def new
       authorize(vehicle)
-      @resource = GasEntry.new(:user => current_user, :date => Date.today, :vehicle => vehicle)
+      @resource = GasEntry.new(:vehicle => vehicle)
       authorize(resource)
     end
 
     def create
       authorize(vehicle)
-      @resource = GasEntry.new(resource_params.merge(:user => current_user, :vehicle => vehicle))
+      @resource = vehicle.gas_entries.build(resource_params)
       authorize(resource)
       if resource.station
         resource.station.user = current_user
@@ -71,9 +71,8 @@ module Vehicles
     end
 
     def collection
-      @collection ||= GasEntry.includes(:user, :vehicle).
-                        where(:user_id => current_user.id, :vehicle => vehicle).
-                        only_this_year
+      @collection ||= GasEntry.includes(:vehicle).
+                        where(:vehicle => vehicle)
     end
 
     def resource
