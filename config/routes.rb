@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
   end
 
-  resources :gas_entries
-
   resource :dashboard, only: [:show]
   get "instructions", to: "dashboards#instructions"
 
