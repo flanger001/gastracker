@@ -18,9 +18,8 @@ module Vehicles
       authorize(vehicle)
       @resource = vehicle.gas_entries.build(resource_params)
       authorize(resource)
-      if resource.station
-        resource.station.user = current_user
-      end
+      resource.station.users << current_user if resource.station
+
       if resource.save
         flash[:success] = "Fill-up added successfully!"
         redirect_to vehicle_gas_entries_path(vehicle)
@@ -84,7 +83,7 @@ module Vehicles
     end
 
     def stations
-      @stations = Station.includes(:user).where(:user => current_user)
+      @stations = Station.all
     end
 
     helper_method :vehicle, :stations

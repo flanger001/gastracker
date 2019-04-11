@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_210638) do
+ActiveRecord::Schema.define(version: 2019_04_11_222808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,13 +41,12 @@ ActiveRecord::Schema.define(version: 2019_04_11_210638) do
     t.string "state"
     t.string "zip"
     t.string "phone"
-    t.integer "user_id"
   end
 
   create_table "user_stations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "station_id"
-    t.boolean "favorite"
+    t.boolean "favorite", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["station_id"], name: "index_user_stations_on_station_id"
@@ -71,8 +70,12 @@ ActiveRecord::Schema.define(version: 2019_04_11_210638) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.index ["user_id"], name: "index_vehicles_on_user_id"
   end
 
+  add_foreign_key "gas_entries", "stations"
+  add_foreign_key "gas_entries", "vehicles"
   add_foreign_key "user_stations", "stations"
   add_foreign_key "user_stations", "users"
+  add_foreign_key "vehicles", "users"
 end

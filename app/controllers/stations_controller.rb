@@ -51,7 +51,7 @@ class StationsController < ApplicationController
   end
 
   def collection
-    @stations = Station.where(:user_id => current_user.id)
+    @stations = Station.all
   end
 
   def resource_params
