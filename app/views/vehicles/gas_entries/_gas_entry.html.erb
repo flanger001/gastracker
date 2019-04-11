@@ -1,0 +1,28 @@
+<div>
+  <h1>Vehicle</h1>
+  <p><%= link_to resource.vehicle.full_name, vehicle_path(resource.vehicle) %></p>
+</div>
+<div>
+  <h1>Odometer</h1>
+  <p><%= resource.odometer %></p>
+</div>
+<div>
+  <h1>Distance</h1>
+  <%= resource.distance %> miles
+</div>
+<div>
+  <h1>Gallons</h1>
+  <p><%= resource.gallons %></p>
+</div>
+<div>
+  <h1>Cost</h1>
+  <p><%= number_to_currency(resource.cost) %></p>
+</div>
+<div>
+  <h1>MPG</h1>
+  <p><%= resource.mpg %></p>
+</div>
+<div>
+  <h1>Station</h1>
+  <p><%= resource.station.try(:name) %></p>
+</div>
