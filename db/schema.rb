@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_204645) do
+ActiveRecord::Schema.define(version: 2019_04_11_210133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_204645) do
     t.float "price_per_gallon"
     t.string "photo"
     t.index ["station_id"], name: "index_gas_entries_on_station_id"
+    t.index ["vehicle_id"], name: "index_gas_entries_on_vehicle_id"
   end
 
   create_table "stations", id: :serial, force: :cascade do |t|
