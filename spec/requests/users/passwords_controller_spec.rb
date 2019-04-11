@@ -42,5 +42,3 @@ RSpec.describe Users::PasswordsController do
     end
   end
 end
-
-
