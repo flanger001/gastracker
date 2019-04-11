@@ -43,3 +43,8 @@ Style/SymbolArray:
 
 Style/GuardClause:
   Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "config/**/*"
