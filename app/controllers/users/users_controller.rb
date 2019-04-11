@@ -2,15 +2,21 @@ module Users
   class UsersController < ApplicationController
     before_action :require_user, :except => [:new, :create]
 
-    def show; end
+    def show
+      authorize(user)
+    end
 
     def new
+      authorize(User)
       @user = User.new
     end
 
-    def edit; end
+    def edit
+      authorize(user)
+    end
 
     def create
+      authorize(User)
       @user = User.new(resource_params)
       if user.save
         UserMailer.welcome(user).deliver_now
@@ -24,6 +30,7 @@ module Users
     end
 
     def update
+      authorize(user)
       if user.update(resource_params)
         flash[:success] = "#{user.name}, your account has been updated!"
         redirect_to user_path(user)
@@ -33,6 +40,7 @@ module Users
     end
 
     def destroy
+      authorize(user)
       if user.destroy
         session[:user_id] = nil
         flash[:success] = "Your account has been deleted along with all data associated with it."

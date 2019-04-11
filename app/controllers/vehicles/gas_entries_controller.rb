@@ -1,15 +1,23 @@
 module Vehicles
   class GasEntriesController < ApplicationController
-    def index; end
+    def index
+      authorize(vehicle)
+    end
 
-    def show; end
+    def show
+      authorize(resource)
+    end
 
     def new
+      authorize(vehicle)
       @resource = GasEntry.new(:user => current_user, :date => Date.today, :vehicle => vehicle)
+      authorize(resource)
     end
 
     def create
+      authorize(vehicle)
       @resource = GasEntry.new(resource_params.merge(:user => current_user, :vehicle => vehicle))
+      authorize(resource)
       if resource.station
         resource.station.user = current_user
       end
@@ -22,9 +30,12 @@ module Vehicles
       end
     end
 
-    def edit; end
+    def edit
+      authorize(resource)
+    end
 
     def update
+      authorize(resource)
       if resource.update(resource_params)
         flash[:success] = "Fill-up edited successfully!"
         redirect_to vehicle_gas_entries_path(vehicle)
@@ -35,6 +46,7 @@ module Vehicles
     end
 
     def destroy
+      authorize(resource)
       resource.destroy
       flash[:success] = "Fill-up deleted successfully!"
       redirect_to vehicle_gas_entries_path(vehicle)

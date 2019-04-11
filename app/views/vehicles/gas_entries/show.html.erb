@@ -1,2 +1,4 @@
 <% content_for :title, "Fill-up on #{resource.date.strftime("%m/%d/%Y")}" %>
 <%= render resource %>
+<p><%= link_to "Vehicle page", vehicle_path(vehicle) %></p>
+<p><%= link_to "Gas entries page", vehicle_gas_entries_path %></p>

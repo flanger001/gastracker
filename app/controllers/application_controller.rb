@@ -1,16 +1,19 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
   protect_from_forgery :with => :exception
+
+  rescue_from Pundit::NotAuthorizedError, :with => :user_not_authorized
 
   private
 
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(request.referrer || root_path)
+  end
+
   def current_user
-    @current_user ||= begin
-      if session[:user_id]
-        User.find(session[:user_id])
-      else
-        GuestUser.new
-      end
-    end
+    @current_user ||= User.from_session(session)
   end
 
   def user_logged_in?

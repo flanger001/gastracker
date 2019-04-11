@@ -3,5 +3,6 @@ FactoryBot.define do
     odometer { 1 }
     gallons { 1.5 }
     distance { 1.5 }
+    date { Time.zone.today }
   end
 end
