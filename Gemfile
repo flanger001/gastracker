@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.5.1"
 
-gem "bcrypt", "3.1.10"
+gem "bcrypt"
 gem "bootsnap"
 gem "bootstrap-sass"
 gem "carrierwave-aws"
