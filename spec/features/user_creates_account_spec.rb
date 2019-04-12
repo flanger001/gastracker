@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "UserCreatesAccount" do
   it "creates an account for the user and redirects to the dashboard" do
-    visit root_path
+    visit(root_path)
     expect(page).to have_content("Gas Tracker")
     expect(page).to have_link("Sign Up")
     expect(page).to have_link("Log In")
