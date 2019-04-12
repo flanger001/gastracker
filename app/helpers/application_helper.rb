@@ -34,4 +34,9 @@ module ApplicationHelper
     end
     link_to "Add New Station", "#", :id => "add_station", :class => "btn btn-lg btn-block btn-default", :data => { :id => id, :fields => fields.gsub("\n", "") }
   end
+
+  def bootstrap_class_for(flash_type)
+    flashes = { :success => "alert-success", :error => "alert-danger", :alert => "alert-block", :notice => "alert-info" }
+    flashes.fetch(flash_type.to_sym) { flash_type.to_s }
+  end
 end
