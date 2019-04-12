@@ -23,7 +23,8 @@ class StationsController < ApplicationController
     authorize(Station)
     @station = current_user.stations.build(resource_params)
     if resource.save
-      redirect_to resource, :notice => "Station was successfully created."
+      flash[:success] = "Station was successfully created."
+      redirect_to resource
     else
       render :new
     end
@@ -32,7 +33,8 @@ class StationsController < ApplicationController
   def update
     authorize(Station)
     if resource.update(resource_params)
-      redirect_to resource, :notice => "Station was successfully updated."
+      flash[:success] = "Station was successfully updated."
+      redirect_to resource
     else
       render :edit
     end
@@ -41,7 +43,8 @@ class StationsController < ApplicationController
   def destroy
     authorize(Station)
     resource.destroy
-    redirect_to stations_url, :notice => "Station was successfully destroyed."
+    flash[:success] = "Station was successfully destroyed."
+    redirect_to stations_url
   end
 
   private

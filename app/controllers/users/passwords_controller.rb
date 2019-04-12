@@ -10,7 +10,8 @@ module Users
       authorize(password_form)
 
       if password_form.submit(password_params)
-        redirect_to user_path, :notice => "Successfully changed password"
+        flash[:success] = "Password successfully changed!"
+        redirect_to user_path
       else
         render :new
       end

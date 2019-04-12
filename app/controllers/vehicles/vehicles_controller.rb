@@ -21,7 +21,8 @@ module Vehicles
       authorize(Vehicle)
       @resource = Vehicle.new(vehicle_params.merge(:user => current_user))
       if resource.save
-        redirect_to resource, :notice => "Vehicle was successfully created."
+        flash[:success] = "Vehicle was successfully created."
+        redirect_to resource
       else
         render :action => :new
       end
@@ -30,7 +31,8 @@ module Vehicles
     def update
       authorize(resource)
       if resource.update(vehicle_params)
-        redirect_to resource, :notice => "Vehicle was successfully updated."
+        flash[:success] = "Vehicle was successfully updated."
+        redirect_to resource
       else
         render :action => :edit
       end
@@ -39,7 +41,8 @@ module Vehicles
     def destroy
       authorize(resource)
       resource.destroy
-      redirect_to vehicles_url, :notice => "Vehicle was successfully destroyed."
+      flash[:success] = "Vehicle was successfully destroyed."
+      redirect_to vehicles_url
     end
 
     private
