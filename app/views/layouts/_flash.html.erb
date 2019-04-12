@@ -1,0 +1,14 @@
+<div class="flash">
+  <% if flash.key?(:success) %>
+    <%= tag.div(class: "flash__message #{bootstrap_class_for(:success)} alert alert-#{bootstrap_class_for(:success)} flash__message-fade", role: "alert") do %>
+      <%= flash[:success] %>
+    <% end %>
+  <% end %>
+
+  <% if flash.key?(:error) %>
+    <%= tag.div(class: "flash__message #{bootstrap_class_for(:error)} alert alert-#{bootstrap_class_for(:error)} flash__message-persist alert-dismissible", role: "alert") do %>
+      <%= flash[:error] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <% end %>
+  <% end %>
+</div>

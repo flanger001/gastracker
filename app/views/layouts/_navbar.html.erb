@@ -12,11 +12,6 @@
     <div class="navbar-right">
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="navbar-text">
-            <% flash.each do |name, msg| %>
-              <%= content_tag :div, msg, class: "flash #{name}" %>
-            <% end %>
-          </li>
           <% nav_links.each do |link| %>
             <li><%= link_to link.name, link.url, method: link.method %></li>
           <% end %>
