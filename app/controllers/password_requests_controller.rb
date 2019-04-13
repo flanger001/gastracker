@@ -7,10 +7,7 @@ class PasswordRequestsController < ApplicationController
 
   def create
     authorize(password_request_form)
-    if password_request_form.submit(password_request_params)
-      cookies.permanent[:require_password_reset] = password_request_form.user.id
-      UserMailer.password_request(password_request_form.user).deliver_now
-    end
+    UserMailer.password_request(password_request_form.user).deliver_now if password_request_form.submit(password_request_params)
     flash[:success] = "Please check your email for a password reset token."
     redirect_to root_path
   end

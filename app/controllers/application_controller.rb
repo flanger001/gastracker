@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def force_password_reset
     return unless current_user.persisted?
-    if cookies[:require_password_reset] == current_user.id.to_s
+    if current_user.password_request.present?
       flash[:error] = "You are required to reset your password."
       redirect_to new_password_reset_path
     end
