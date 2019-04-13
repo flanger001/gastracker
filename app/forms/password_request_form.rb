@@ -15,6 +15,6 @@ class PasswordRequestForm
   private
 
   def user_exists
-    user.persisted?
+    user.present?
   end
 end
