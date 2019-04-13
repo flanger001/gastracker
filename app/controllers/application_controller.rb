@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :force_password_reset
+
   include Pundit
 
   protect_from_forgery :with => :exception
@@ -6,6 +8,14 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, :with => :user_not_authorized
 
   private
+
+  def force_password_reset
+    return unless current_user.persisted?
+    if cookies[:require_password_reset] == current_user.id.to_s
+      flash[:error] = "You are required to reset your password."
+      redirect_to new_password_reset_path
+    end
+  end
 
   def user_not_authorized
     flash[:error] = "You are not authorized to perform this action."

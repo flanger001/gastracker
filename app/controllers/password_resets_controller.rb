@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   before_action :find_user_from_token, :only => :new
+  skip_before_action :force_password_reset
 
   def new
     authorize(password_reset_form)
@@ -10,6 +11,7 @@ class PasswordResetsController < ApplicationController
     @password_reset_form = PasswordResetForm.new(current_user)
 
     if password_reset_form.submit(password_reset_params)
+      cookies.delete(:require_password_reset)
       session[:user_id] = nil
       flash[:success] = "Your password has been changed successfully. You may now login with your new password."
       redirect_to root_path
@@ -28,7 +30,7 @@ class PasswordResetsController < ApplicationController
   helper_method :password_reset_form
 
   def find_user_from_token
-    user = User.joins(:password_request).where(:password_requests => { :token => params[:token] }).first || User::Guest.new
+    user = User.joins(:password_request).where(:password_requests => { :token => params[:token] }).first || User.from_session(session)
     if user.persisted?
       session[:user_id] = user.id
     else

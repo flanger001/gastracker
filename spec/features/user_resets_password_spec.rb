@@ -14,7 +14,6 @@ RSpec.describe "User resets password" do
 
     click_button("Request new password")
 
-
     visit(new_password_reset_path(:token => user.password_request.token))
 
     expect(page).to have_text("Please enter your new password now. You will be logged out and can log back in with your new password.")
