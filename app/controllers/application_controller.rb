@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :set_raven_context, :force_password_reset
+  before_action :set_raven_context
+  before_action :force_password_reset
 
   include Pundit
 
