@@ -44,7 +44,7 @@ class StationsController < ApplicationController
     authorize(Station)
     resource.destroy
     flash[:success] = "Station was successfully destroyed."
-    redirect_to stations_url
+    redirect_to stations_path
   end
 
   private

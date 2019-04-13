@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :stations, :through => :user_stations
   has_many :vehicles, :dependent => :destroy
   has_many :gas_entries, :through => :vehicles
+  has_one :password_request
 
   def self.from_session(session)
     if session[:user_id]
