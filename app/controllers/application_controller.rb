@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :force_password_reset
+  before_action :set_raven_context, :force_password_reset
 
   include Pundit
 
@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, :with => :user_not_authorized
 
   private
+
+  def set_raven_context
+    Raven.user_context(:id => session[:user_id])
+    Raven.extra_context(:params => params.to_unsafe_h, :url => request.url)
+  end
 
   def force_password_reset
     return unless current_user.persisted?
