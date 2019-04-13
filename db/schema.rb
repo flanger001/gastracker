@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_225719) do
+ActiveRecord::Schema.define(version: 2019_04_12_232417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2019_04_11_225719) do
     t.string "photo"
     t.index ["station_id"], name: "index_gas_entries_on_station_id"
     t.index ["vehicle_id"], name: "index_gas_entries_on_vehicle_id"
+  end
+
+  create_table "password_requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_password_requests_on_user_id"
   end
 
   create_table "stations", id: :serial, force: :cascade do |t|
@@ -75,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_225719) do
 
   add_foreign_key "gas_entries", "stations"
   add_foreign_key "gas_entries", "vehicles"
+  add_foreign_key "password_requests", "users"
   add_foreign_key "user_stations", "stations"
   add_foreign_key "user_stations", "users"
   add_foreign_key "vehicles", "users"
