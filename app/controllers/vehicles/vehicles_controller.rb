@@ -42,7 +42,7 @@ module Vehicles
       authorize(resource)
       resource.destroy
       flash[:success] = "Vehicle was successfully destroyed."
-      redirect_to vehicles_url
+      redirect_to vehicles_path
     end
 
     private
