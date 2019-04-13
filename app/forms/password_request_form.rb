@@ -15,6 +15,6 @@ class PasswordRequestForm
   private
 
   def user_exists
-    user.present?
+    errors.add(:base, "is not valid") unless user.present?
   end
 end
