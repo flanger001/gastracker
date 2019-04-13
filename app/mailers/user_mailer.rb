@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default :from => "Gas Tracker <dave.shaffer@gmail.com>"
+  default :from => "Gas Tracker <#{ENV.fetch("SITE_EMAIL")}>"
 
   def welcome(user)
     @user = user
