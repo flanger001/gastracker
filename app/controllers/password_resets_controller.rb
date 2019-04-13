@@ -11,7 +11,6 @@ class PasswordResetsController < ApplicationController
     @password_reset_form = PasswordResetForm.new(current_user)
 
     if password_reset_form.submit(password_reset_params)
-      cookies.delete(:require_password_reset)
       session[:user_id] = nil
       flash[:success] = "Your password has been changed successfully. You may now login with your new password."
       redirect_to root_path

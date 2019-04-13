@@ -38,6 +38,20 @@ RSpec.describe "User resets password" do
 
       expect(page.current_path).to eq(dashboard_path)
     end
+
+    context "with an existing password request" do
+      let!(:password_request) { create(:password_request, :user_id => user.id) }
+
+      it "locks the user from any other actions until they reset their password" do
+        sign_in(user)
+
+        expect(page).to have_text("You are required to reset your password.")
+
+        visit(stations_path)
+
+        expect(page).to have_text("You are required to reset your password.")
+      end
+    end
   end
 
   context "given a non-existent user" do
