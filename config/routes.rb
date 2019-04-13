@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
   get "instructions", to: "dashboards#instructions"
 
+  resource :password_request, only: [:new, :create]
+  resource :password_reset, only: [:new, :create]
+
   resources :stations
   resources :vehicles, module: "vehicles" do
     resources :gas_entries
