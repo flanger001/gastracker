@@ -11,8 +11,8 @@ class GasEntry < ApplicationRecord
 
   before_save :calculate_cost_or_ppg, :unless => :photo?
 
-  scope :most_recent, -> { order("date desc") }
-  scope :this_year, -> { where("date >= ?", Time.now.at_beginning_of_year) }
+  scope :most_recent, -> { order(:date => :desc) }
+  scope :this_year, -> { where(arel_table[:date].gteq(Time.now.at_beginning_of_year))}
   scope :for_user, ->(user) { joins(:station, :vehicle).where(:vehicles => { :user => user }) }
 
   def mpg
