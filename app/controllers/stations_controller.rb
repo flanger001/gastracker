@@ -50,11 +50,11 @@ class StationsController < ApplicationController
   private
 
   def resource
-    @station ||= Station.find(params[:id])
+    @resource ||= Station.find(params[:id])
   end
 
   def collection
-    @stations = Station.all
+    @collection ||= Station.with_user_visits(current_user)
   end
 
   def resource_params
