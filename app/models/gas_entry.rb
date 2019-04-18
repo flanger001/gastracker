@@ -13,7 +13,7 @@ class GasEntry < ApplicationRecord
 
   scope :most_recent, -> { order(:date => :desc) }
   scope :this_year, -> { where(arel_table[:date].gteq(Time.now.at_beginning_of_year))}
-  scope :for_user, ->(user) { joins(:station, :vehicle).where(:vehicles => { :user => user }) }
+  scope :for_user, ->(user) { preload(:vehicle, :station).joins(:station, :vehicle).where(:vehicles => { :user => user }) }
 
   def mpg
     distance / gallons
