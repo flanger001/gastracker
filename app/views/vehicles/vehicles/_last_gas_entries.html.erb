@@ -1,0 +1,12 @@
+<h2>Last gas <%= "entry".pluralize(last_gas_entries.size) %></h2>
+<div>
+  <% last_gas_entries.reverse.each do |gas_entry| %>
+    <p>
+      <%= gas_entry.date %> -
+      <%= number_to_currency(gas_entry.cost) %> @
+      <%= link_to(gas_entry.station) do %>
+        <%= gas_entry.station.name %>, <%= gas_entry.station.city %> <%= gas_entry.station.state %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
