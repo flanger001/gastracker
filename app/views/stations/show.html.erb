@@ -3,16 +3,44 @@
 <p id="notice"><%= notice %></p>
 <address>
   <%= resource.address %>
-  <br/>
+  <br />
   <%= resource.city %>
-  <br/>
+  <br />
   <%= resource.state %>
-  <br/>
+  <br />
   <%= resource.zip %>
-  <br/>
+  <br />
   <%= resource.phone %>
 </address>
 
+<div>
+  <h2>Visits for <%= resource.name %></h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Vehicle</th>
+        <th>Amount</th>
+        <th>Cost</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% resource.gas_entries.for_user(current_user).each do |gas_entry|  %>
+      <tr>
+        <td><%= gas_entry.date %></td>
+        <td><%= gas_entry.vehicle.full_name %></td>
+        <td><%= gas_entry.gallons %></td>
+        <td><%= number_to_currency(gas_entry.cost) %></td>
+        <td>
+          <%= link_to "Edit", edit_vehicle_gas_entry_path(gas_entry.vehicle, gas_entry), class: "btn btn-warning btn-xs" %>
+          <%= link_to "Delete", vehicle_gas_entry_path(gas_entry.vehicle, gas_entry), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <div class="btn-toolbar">
   <%= link_to "Back", stations_path, class: "btn btn-md btn-default" %>
 </div>
