@@ -12,7 +12,7 @@ class StationsController < ApplicationController
 
   def new
     authorize(Station)
-    @station = current_user.stations.build
+    @resource = current_user.stations.build
   end
 
   def edit
@@ -21,7 +21,7 @@ class StationsController < ApplicationController
 
   def create
     authorize(Station)
-    @station = current_user.stations.build(resource_params)
+    @resource = current_user.stations.build(resource_params)
     if resource.save
       flash[:success] = "Station was successfully created."
       redirect_to resource
