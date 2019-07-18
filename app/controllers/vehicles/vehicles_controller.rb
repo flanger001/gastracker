@@ -6,6 +6,7 @@ module Vehicles
 
     def show
       authorize(resource)
+      @last_gas_entries = resource.gas_entries.last(5)
     end
 
     def new
@@ -52,7 +53,7 @@ module Vehicles
     end
 
     def resource
-      @resource ||= Vehicle.includes(:user).find(params[:id])
+      @resource ||= Vehicle.preload(:gas_entries).includes(:user).find(params[:id])
     end
 
     def vehicle_params

@@ -8,6 +8,7 @@
       <th>State</th>
       <th>Zip</th>
       <th>Phone</th>
+      <th># Visits</th>
       <th></th>
     </tr>
   </thead>
@@ -20,11 +21,10 @@
         <td><%= row.state %></td>
         <td><%= row.zip %></td>
         <td><%= row.phone %></td>
+        <td><%= row.visits %></td>
         <td>
           <div class="btn-toolbar pull-right">
             <%= link_to "Show", row, class: "btn btn-xs btn-info" %>
-            <%#= link_to "Edit", edit_station_path(row), class: "btn btn-xs btn-warning" %>
-            <%#= link_to "Destroy", row, data: { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-xs btn-danger" %>
           </div>
         </td>
       </tr>

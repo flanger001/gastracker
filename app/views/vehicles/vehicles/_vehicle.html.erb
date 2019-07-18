@@ -1,2 +1,26 @@
-<p>Total recorded miles</p>
-<%= link_to "Gas Entries For Vehicle", vehicle_gas_entries_path(vehicle) %>
+<div class="vehicle-stats">
+  <h2>Quick stats</h2>
+
+  <h3 class="vehicle-stats__header">Total gas entries:</h3>
+  <p class="vehicle_stats__item">
+    <%= vehicle.gas_entries.size %>
+  </p>
+
+  <h3 class="vehicle-stats__header">Total cost:</h3>
+  <p class="vehicle_stats__item">
+    <%= number_to_currency(vehicle.gas_entries.sum(:cost)) %>
+  </p>
+
+  <h3 class="vehicle-stats__header">Total recorded distance:</h3>
+  <p class="vehicle_stats__item">
+    <%= vehicle.gas_entries.sum(:distance) %>
+  </p>
+</div>
+
+<%= render :partial => "last_gas_entries", :locals => { :last_gas_entries => @last_gas_entries } %>
+
+<div>
+  <p>
+    <%= link_to "All gas entries for #{vehicle.full_name}", vehicle_gas_entries_path(vehicle) %>
+  </p>
+</div>
