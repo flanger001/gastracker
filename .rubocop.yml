@@ -1,8 +1,12 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
 inherit_from: .rubocop_todo.yml
 
 AllCops:
   # Prevent RuboCop from exploding when it finds an older-than-2.2 .ruby-version
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   DisabledByDefault: true
   Exclude:
     - "db/schema.rb"
