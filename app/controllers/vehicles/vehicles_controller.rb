@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Vehicles
   class VehiclesController < ApplicationController
     def index

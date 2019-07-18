@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_raven_context
   before_action :force_password_reset
@@ -17,10 +19,10 @@ class ApplicationController < ActionController::Base
 
   def force_password_reset
     return unless current_user.persisted?
-    if current_user.password_request.present?
-      flash[:error] = "You are required to reset your password."
-      redirect_to new_password_reset_path
-    end
+    return unless current_user.password_request.present?
+
+    flash[:error] = "You are required to reset your password."
+    redirect_to new_password_reset_path
   end
 
   def user_not_authorized

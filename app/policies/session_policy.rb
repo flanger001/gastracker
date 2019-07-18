@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionPolicy < ApplicationPolicy
   def new?
     !user_logged_in?

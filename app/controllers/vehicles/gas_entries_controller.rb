@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Vehicles
   class GasEntriesController < ApplicationController
     def index
@@ -66,12 +68,13 @@ module Vehicles
         :price_per_gallon,
         :photo,
         :remove_photo,
-        { :station_attributes => [:id, :name, :address, :city, :state, :zip, :phone] })
+        { :station_attributes => [:id, :name, :address, :city, :state, :zip, :phone] }
+      )
     end
 
     def collection
       @collection ||= GasEntry.includes(:vehicle).
-                        where(:vehicle => vehicle)
+        where(:vehicle => vehicle)
     end
 
     def resource

@@ -9,17 +9,24 @@ AllCops:
   TargetRubyVersion: 2.6
   DisabledByDefault: true
   Exclude:
-    - "db/schema.rb"
+    - "db/**/*"
+    - "config/**/*"
+    - "tmp/**/*"
+    - "bin/**/*"
+    - "Gemfile"
+    - "config.ru"
 
-Layout/DotPosition:
-  Enabled: true
-  EnforcedStyle: trailing
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
 
-Layout/SpaceAroundOperators:
-  Enabled: true
+Metrics/LineLength:
+  Max: 220
 
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: space
+# STYLE
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "()"
 
 Style/Documentation:
   Enabled: false
@@ -28,16 +35,14 @@ Style/EmptyMethod:
   EnforcedStyle: compact
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  EnforcedStyle: always
 
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
-  Exclude:
-    - "db/**/*"
-    - "config/**/*"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
@@ -48,20 +53,105 @@ Style/SymbolArray:
 Style/GuardClause:
   Enabled: true
 
-Metrics/BlockLength:
-  Exclude:
-    - "spec/**/*"
-    - "config/**/*"
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
 
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    default: "()"
+Style/AndOr:
+  EnforcedStyle: conditionals
 
-Metrics/LineLength:
-  Max: 220
+Style/AsciiComments:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+  AutoCorrect: true
+
+Style/ClassCheck:
+  EnforcedStyle: is_a?
+
+Style/CommentAnnotation:
+  Keywords:
+    - NB
+    - TODO
+    - FIXME
+    - OPTIMIZE
+    - HACK
+    - REVIEW
+
+Style/DefWithParentheses:
+  Enabled: true
+
+Style/GlobalVars:
+  AllowedVariables:
+    - "$redis"
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  IgnoreMacros: true
+  IgnoredMethods:
+    - "describe"
+    - "to"
+    - "to_not"
+    - "require"
+    - "change"
+    - "puts"
+    - "exit"
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+
+Style/RedundantParentheses:
+  Enabled: false
+
+# LAYOUT
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: start_of_line
+  AutoCorrect: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: new_line
 
 Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: no_empty_lines
 
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: no_empty_lines
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# LINT
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*" # Ignoring the whole spec directory because `change` is the only method that triggers this

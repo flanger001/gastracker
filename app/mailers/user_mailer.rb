@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   default :from => "Gas Tracker <#{ENV.fetch("SITE_EMAIL")}>"
 

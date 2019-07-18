@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordRequestsController < ApplicationController
   before_action :require_no_user
 

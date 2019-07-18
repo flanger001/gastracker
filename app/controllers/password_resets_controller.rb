@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordResetsController < ApplicationController
   before_action :find_user_from_token, :only => :new
   skip_before_action :force_password_reset

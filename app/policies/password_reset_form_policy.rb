@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordResetFormPolicy < ApplicationPolicy
   def new?
     user_logged_in?

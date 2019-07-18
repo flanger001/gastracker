@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GasEntry < ApplicationRecord
   belongs_to :station
   belongs_to :vehicle

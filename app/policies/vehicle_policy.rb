@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VehiclePolicy < ApplicationPolicy
   def initialize(user, record)
     raise Pundit::NotAuthorizedError unless user.persisted?

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordResetForm
   include ActiveModel::Model
   attr_accessor :new_password, :new_password_confirmation, :user
