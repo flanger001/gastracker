@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StationsController < ApplicationController
   # NB: This requires a user but I have locked down permissions for stations at the moment
   before_action :require_user

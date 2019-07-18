@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Users
   class SessionsController < ApplicationController
     before_action :require_no_user, :except => :destroy

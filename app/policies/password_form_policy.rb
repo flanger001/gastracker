@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordFormPolicy < ApplicationPolicy
   def new?
     user_logged_in? && record.user == user

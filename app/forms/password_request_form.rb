@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordRequestForm
   include ActiveModel::Model
 

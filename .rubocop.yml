@@ -35,7 +35,7 @@ Style/EmptyMethod:
   EnforcedStyle: compact
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  EnforcedStyle: always
 
 Style/HashSyntax:
   EnforcedStyle: hash_rockets

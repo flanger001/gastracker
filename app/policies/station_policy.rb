@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StationPolicy < ApplicationPolicy
   def index?
     show?

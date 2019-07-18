@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LinksHelper
   NavLink = Struct.new(:name, :url, :method)
 
