@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module GasTracker
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults(5.2)
+    config.load_defaults 6.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -17,5 +17,6 @@ module GasTracker
     # the framework and any gems in your application.
 
     config.action_view.form_with_generates_remote_forms = false
+    config.action_view.form_with_generates_ids = true
   end
 end
