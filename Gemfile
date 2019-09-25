@@ -20,6 +20,7 @@ gem "uglifier", ">= 1.3.0"
 
 group :development do
   gem "web-console"
+  gem "listen"
 end
 
 group :test do
