@@ -10,7 +10,7 @@ development: &default
 test:
   <<: *default
   database: <%= ENV["DATABASE_TEST_NAME"] %>
+  host: 127.0.0.1
 
 production:
   <<: *default
-  host: localhost
