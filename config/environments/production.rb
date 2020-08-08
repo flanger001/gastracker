@@ -88,10 +88,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.smtp_settings = {
-    address: ENV["SMTP_HOST"],
-    port: ENV["SMTP_PORT"],
-    user_name: ENV["SMTP_USERNAME"],
-    password: ENV["SENDGRID_API_KEY"],
+    address: Rails.application.credentials.sendgrid[:smtp_host],
+    port: Rails.application.credentials.sendgrid[:smtp_port],
+    user_name: Rails.application.credentials.sendgrid[:smtp_username],
+    password: Rails.application.credentials.sendgrid[:api_key],
     authentication: :plain,
     enable_starttls_auto: true
   }

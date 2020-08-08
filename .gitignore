@@ -18,3 +18,5 @@
 .env*
 /public/uploads/
 spec/examples.txt
+
+/config/master.key
