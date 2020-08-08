@@ -20,7 +20,7 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 220
 
 # STYLE
@@ -63,9 +63,6 @@ Style/AsciiComments:
   Enabled: false
 
 Style/BarePercentLiterals:
-  Enabled: false
-
-Style/BracesAroundHashParameters:
   Enabled: false
 
 Style/ClassAndModuleChildren:
