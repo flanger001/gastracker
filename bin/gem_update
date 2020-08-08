@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+require "open3"
+
+puts "Create new branch? (press y to continue)"
+print "> "
+
+if gets.chomp.casecmp?("y")
+  system("git checkout master")
+  system("git branch -D gems/outdated")
+  system("git checkout -b gems/outdated")
+end
+
+# Build list
+puts "Fetching gems...\n"
+to_update, _status, = Open3.capture2("bundle outdated --strict --only-explicit --parseable")
+gems = to_update.split("\n")
+gems.shift
+to_review = gems.each_with_object({}) do |g, h|
+  gem = g.scan(/(?<name>.*?) \(newest (?<new_version>.*?), installed (?<old_version>.*?)\)/).pop
+  h[gem[0]] = { new_version: gem[1], old_version: gem[2] }
+end
+
+# Confirm
+puts "List of gems to update:\n"
+to_review.each { |g, v| puts "#{g} (#{v[:old_version]} => #{v[:new_version]})" }
+
+puts "Ok to update? (press y to continue)"
+print "> "
+
+if gets.chomp.casecmp?("y")
+  # Execute
+  puts "Updating gems\n"
+  to_review.each { |g, v| system(%Q{bundle update #{g} && git commit --all -m "Update #{g} to #{v[:new_version]}" --no-verify}) }
+  puts
+  puts "Finished! Don't forget to run tests!"
+else
+  # Bail
+  puts "Canceling"
+  exit
+end
