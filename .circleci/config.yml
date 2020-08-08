@@ -25,6 +25,7 @@ jobs:
           command: bundle exec rails db:setup --trace
 #      - node/install-packages:
 #          pkg-manager: yarn
+      - ruby/rubocop-check
       - ruby/rspec-test
       - slack/status
 workflows:
