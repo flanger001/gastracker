@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserMailer < ApplicationMailer
-  default :from => "Gas Tracker <#{ENV.fetch("SITE_EMAIL")}>"
+  default :from => "Gas Tracker <#{Rails.application.credentials[:site_email]}>"
 
   def welcome(user)
     @user = user
