@@ -11,7 +11,6 @@ RSpec.describe "UserCreatesEntry" do
 
     visit(vehicle_gas_entries_path(vehicle))
 
-    expect(page.status_code).to eq(200)
     expect(page).to have_text("All Gas Entries for 2000 Honda Accord")
 
     # TODO: Create entry
