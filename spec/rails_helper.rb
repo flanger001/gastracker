@@ -27,4 +27,8 @@ RSpec.configure do |config|
   config.include(ActiveSupport::Testing::TimeHelpers)
   config.include(RequestMethods, :type => :request)
   config.include(FeatureMethods, :type => :feature)
+
+  config.before(:each, :type => :system) do
+    driven_by :selenium, :using => :headless_firefox
+  end
 end
