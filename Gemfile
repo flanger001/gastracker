@@ -15,6 +15,7 @@ gem "pry-rails"
 gem "pundit", "~> 2.0"
 gem "rails", "6.0.0"
 gem "sass-rails"
+gem "selenium-webdriver"
 gem "sentry-raven", "~> 2.9"
 gem "uglifier", ">= 1.3.0"
 

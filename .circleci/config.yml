@@ -6,7 +6,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.6.3-node-browsers
       - image: circleci/postgres:11.6
     environment:
       RAILS_ENV: test

@@ -26,5 +26,9 @@ RSpec.configure do |config|
   config.include(FactoryBot::Syntax::Methods)
   config.include(ActiveSupport::Testing::TimeHelpers)
   config.include(RequestMethods, :type => :request)
-  config.include(FeatureMethods, :type => :feature)
+  config.include(FeatureMethods, :type => :system)
+
+  config.before(:each, :type => :system) do
+    driven_by :selenium, :using => :headless_firefox
+  end
 end

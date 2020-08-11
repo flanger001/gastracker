@@ -21,6 +21,6 @@ RSpec.describe "UserCreatesAccount" do
 
     click_button("Sign Up")
 
-    expect(page.current_url).to eq(dashboard_url)
+    expect(page.current_path).to eq(dashboard_path)
   end
 end
